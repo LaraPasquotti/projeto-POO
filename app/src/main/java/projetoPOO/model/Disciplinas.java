@@ -1,4 +1,4 @@
-package projetoPOO;
+package projetoPOO.model;
 
 import java.util.ArrayList;
 
