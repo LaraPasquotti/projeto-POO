@@ -14,6 +14,6 @@ public interface FiltroPesquisa {
      * @param avaliacoes avaliações que serão filtrados
      * @return as avaliações que serão pesquisadas
      */
-    public List<Avalicoes> meetCriteria(List<Avalicoes> avaliacoes);
+    public List<Avaliacoes> meetCriteria(List<Avaliacoes> avaliacoes);
 
 }

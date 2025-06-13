@@ -10,7 +10,7 @@ import java.util.List;
 public class AvaliacaoPorDisciplina implements FiltroPesquisa {
 
     @Override
-    public List<Avalicoes> meetCriteria(List<Avalicoes> avaliacoes) {
+    public List<Avaliacoes> meetCriteria(List<Avaliacoes> avaliacoes) {
         
     }
 
