@@ -33,7 +33,7 @@ public class Disciplinas {
      * @param faltasAtuais
      */
     public void adicionarFaltas(int faltasAtuais){
-
+        faltasAtuais ++;
     }
 
     public void calcularMedia(){
