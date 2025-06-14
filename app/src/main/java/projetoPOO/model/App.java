@@ -4,11 +4,6 @@
 
 package projetoPOO.model;
 
-import java.util.List;
-import java.util.ArrayList;
-import projetoPOO.exception.*;
-import projetoPOO.filter.*;
-import projetoPOO.notifications.*;
 /**
  * Contém a estrutura de implementação da aplicação.
  *
