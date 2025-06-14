@@ -7,11 +7,9 @@ package projetoPOO.model;
 /**
  * Contém a estrutura de implementação da aplicação.
  *
- * @author Isabel Cristina Marras Salles - 188790
+ * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
  * 
- * 
- * Uso de IA para criação de casos em eventos Unitários e para auxílio na documentação do código;
- */
+ *  */
 
 
 public class App {
