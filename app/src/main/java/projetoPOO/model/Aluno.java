@@ -47,11 +47,11 @@ public class Aluno {
      */
     private Disciplinas buscarDisciplina (String nomeDisciplina){
         for(Disciplinas disciplina : this.disciplinasAluno){
-            if(disciplina.nomeDisciplina.equals(nomeDisciplina)){
+            if(disciplina.getNomeDisciplina().equals(nomeDisciplina)){
                 return disciplina;
             }
         }
-        return;
+        return null;
     }
 
     /**

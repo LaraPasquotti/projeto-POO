@@ -15,7 +15,7 @@ public class AvaliacaoPorData implements FiltroPesquisa {
         List<Avaliacoes> dataAvalicaoes = new ArrayList<>();
 
         for (Avaliacoes avaliacao : avaliacoes){
-            if(avaliacao.getDataEntrega().equals(this)){
+            if(avaliacao.getDataEntrega().equals(avaliacao)){
                 dataAvalicaoes.add(avaliacao);
             }
         }
