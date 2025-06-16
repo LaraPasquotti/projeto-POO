@@ -64,34 +64,66 @@ public class Aluno {
         this.disciplinaRemover.remove(disciplinaRemover);
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getNomeAluno() {
         return nomeAluno;
     }
 
+    /**
+     * 
+     * @param nomeAluno
+     */
     public void setNomeAluno(String nomeAluno) {
         this.nomeAluno = nomeAluno;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * 
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getSenha() {
         return senha;
     }
 
+    /**
+     * 
+     * @param senha
+     */
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
+    /**
+     * 
+     * @return
+     */
     public List<Disciplinas> getDisciplinasAluno() {
         return disciplinasAluno;
     }
 
+    /**
+     * 
+     * @param disciplinasAluno
+     */
     public void setDisciplinasAluno(List<Disciplinas> disciplinasAluno) {
         this.disciplinasAluno = disciplinasAluno;
     }
