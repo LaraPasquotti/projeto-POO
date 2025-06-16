@@ -1,5 +1,6 @@
 package projetoPOO.model;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Contém a implementação de Aluno.
@@ -8,10 +9,10 @@ import java.util.ArrayList;
  */
 
 public class Aluno {
-    String nomeAluno; 
-    String email;
-    String senha;
-    List<Disciplina> disciplinasAluno = new ArrayList<>;
+    private String nomeAluno; 
+    private String email;
+    private String senha;
+    private List<Disciplinas> disciplinasAluno = new ArrayList<>();
 
     /**
      * Construtor da classe Aluno
@@ -53,15 +54,47 @@ public class Aluno {
         return;
     }
 
-
-
     /**
      * Remove a disciplina da lista de disciplinas do aluno
      *
      * @param nomeDisciplinaRemover nome da disciplina a ser removida
      */
     public void removerDisciplina(String nomeDisciplinaRemover){
-        Disciplina disciplinaRemover = buscarDisciplina(nomeDisciplinaRemover);
+        Disciplinas disciplinaRemover = buscarDisciplina(nomeDisciplinaRemover);
         this.disciplinaRemover.remove(disciplinaRemover);
     }
+
+    public String getNomeAluno() {
+        return nomeAluno;
+    }
+
+    public void setNomeAluno(String nomeAluno) {
+        this.nomeAluno = nomeAluno;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public List<Disciplinas> getDisciplinasAluno() {
+        return disciplinasAluno;
+    }
+
+    public void setDisciplinasAluno(List<Disciplinas> disciplinasAluno) {
+        this.disciplinasAluno = disciplinasAluno;
+    }
+
+    
 }

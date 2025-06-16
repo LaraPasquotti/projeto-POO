@@ -33,15 +33,16 @@ public class Disciplinas {
      * @param faltasAtuais
      */
     public void adicionarFaltas(int faltasAtuais){
-        faltasAtuais ++;
+        this.faltasAtuais ++;
     }
 
     public void calcularMedia(){
 
     }
 
-    
+
     public void removerFaltas(){
+        this.faltasAtuais --;
 
     }
 
@@ -94,16 +95,16 @@ public class Disciplinas {
     }
 
     /**
-     * 
-     * @return
+     * Retorna a lista de avaliacoes
+     * @return a lista de avaliacoes
      */
     public ArrayList<Avaliacoes> getAvaliacoes() {
         return avaliacoes;
     }
 
     /**
-     * 
-     * @param avaliacoes
+     * Altera a lista de avaliacoes
+     * @param avaliacoes nova lista de avaliacoes
      */
     public void setAvaliacoes(ArrayList<Avaliacoes> avaliacoes) {
         this.avaliacoes = avaliacoes;
