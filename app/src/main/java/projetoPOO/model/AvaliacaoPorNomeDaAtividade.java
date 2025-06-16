@@ -10,7 +10,7 @@ public class AvaliacaoPorNomeDaAtividade implements FiltroPesquisa {
         List<Avaliacoes> nomeAtividade = new ArrayList<>();
 
         for (Avaliacoes avaliacao : avaliacoes){
-            if(avaliacao.getNomeAtividade().equals(nomeAtividade)){
+            if(avaliacao.getNomeAtividade().equals(avaliacao.getNomeAtividade())){
                 nomeAtividade.add(avaliacao);
             }
         }

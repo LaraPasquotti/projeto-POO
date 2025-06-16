@@ -15,7 +15,7 @@ public class AvaliacaoPorDisciplina implements FiltroPesquisa {
         List<Avaliacoes> disciplinas = new ArrayList<>();
 
         for (Avaliacoes avaliacao : avaliacoes){
-            if(avaliacao.getDisciplina().equals(avaliacao)){
+            if(avaliacao.getDisciplina().equals(avaliacao.getDisciplina())){
                 disciplinas.add(avaliacao);
             }
         }
