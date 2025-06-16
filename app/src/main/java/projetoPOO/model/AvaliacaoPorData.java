@@ -1,5 +1,6 @@
 package projetoPOO.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,14 @@ public class AvaliacaoPorData implements FiltroPesquisa {
 
     @Override
     public List<Avaliacoes> meetCriteria(List<Avaliacoes> avaliacoes) {
-        
+        List<Avaliacoes> dataAvalicaoes = new ArrayList<>();
+
+        for (Avaliacoes avaliacao : avaliacoes){
+            if(avaliacao.getDataEntrega().equals(this)){
+                dataAvalicaoes.add(avaliacao);
+            }
+        }
+        return dataAvalicaoes;
     }
 
 }
