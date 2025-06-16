@@ -61,7 +61,7 @@ public class Aluno {
      */
     public void removerDisciplina(String nomeDisciplinaRemover){
         Disciplinas disciplinaRemover = buscarDisciplina(nomeDisciplinaRemover);
-        this.disciplinaRemover.remove(disciplinaRemover);
+        this.disciplinasAluno.remove(disciplinaRemover);
     }
 
     /**
