@@ -28,6 +28,14 @@ public class Aluno {
     }
 
     /**
+     * Construtor da classe Aluno
+     *
+     */
+    public Aluno(){
+
+    }
+
+    /**
      * Cria uma disciplina e adiciona a lista de disciplinas do aluno
      *
      * @param nomeDisciplina nome da disciplina

@@ -40,7 +40,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'projetoPOO.ui.MainApp'
+    mainClass = 'projetoPOO.model.App'
 }
 
 tasks.named('test') {
