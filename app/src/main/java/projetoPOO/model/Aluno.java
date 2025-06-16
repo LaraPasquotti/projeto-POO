@@ -12,7 +12,7 @@ public class Aluno {
     private String nomeAluno; 
     private String email;
     private String senha;
-    private List<Disciplinas> disciplinasAluno = new ArrayList<>();
+    private List<Disciplina> disciplinasAluno = new ArrayList<>();
 
     /**
      * Construtor da classe Aluno
@@ -35,7 +35,7 @@ public class Aluno {
      * @param faltasAtuais faltas atuais do aluno
      */
     public void adicionarDisciplina(String nomeDisciplina, int numeroLimiteFaltas, int faltasAtuais){
-        Disciplinas novaDisciplina = new Disciplinas(nomeDisciplina, numeroLimiteFaltas, faltasAtuais);
+        Disciplina novaDisciplina = new Disciplina(nomeDisciplina, numeroLimiteFaltas, faltasAtuais);
         this.disciplinasAluno.add(novaDisciplina);
     }
 
@@ -45,8 +45,8 @@ public class Aluno {
      * @param nomeDisciplina nome da disciplina buscada
      * @return disciplina encontrada com o nomeDisciplina
      */
-    private Disciplinas buscarDisciplina (String nomeDisciplina){
-        for(Disciplinas disciplina : this.disciplinasAluno){
+    private Disciplina buscarDisciplina (String nomeDisciplina){
+        for(Disciplina disciplina : this.disciplinasAluno){
             if(disciplina.getNomeDisciplina().equals(nomeDisciplina)){
                 return disciplina;
             }
@@ -60,7 +60,7 @@ public class Aluno {
      * @param nomeDisciplinaRemover nome da disciplina a ser removida
      */
     public void removerDisciplina(String nomeDisciplinaRemover){
-        Disciplinas disciplinaRemover = buscarDisciplina(nomeDisciplinaRemover);
+        Disciplina disciplinaRemover = buscarDisciplina(nomeDisciplinaRemover);
         this.disciplinasAluno.remove(disciplinaRemover);
     }
 
@@ -116,7 +116,7 @@ public class Aluno {
      * 
      * @return
      */
-    public List<Disciplinas> getDisciplinasAluno() {
+    public List<Disciplina> getDisciplinasAluno() {
         return disciplinasAluno;
     }
 
@@ -124,7 +124,7 @@ public class Aluno {
      * 
      * @param disciplinasAluno
      */
-    public void setDisciplinasAluno(List<Disciplinas> disciplinasAluno) {
+    public void setDisciplinasAluno(List<Disciplina> disciplinasAluno) {
         this.disciplinasAluno = disciplinasAluno;
     }
 

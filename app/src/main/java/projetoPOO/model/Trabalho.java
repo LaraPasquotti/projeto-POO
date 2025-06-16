@@ -1,6 +1,6 @@
 package projetoPOO.model;
 
-public class Trabalhos {
+public class Trabalho {
 
     public void adicionarTrabalho() {
         

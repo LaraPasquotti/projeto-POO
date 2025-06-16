@@ -2,22 +2,22 @@ package projetoPOO.model;
 
 import java.time.LocalDate;
 
-public abstract class Avaliacoes implements Comparable<Avaliacoes> {
+public abstract class Avaliacao implements Comparable<Avaliacao> {
 
-    private String nomeAtividade;
+    private String nomeAvaliacao;
     private LocalDate dataEntrega;
-    private String disciplina;
+    private Disciplina disciplina;
     private double peso;
 
     /**
      * Construtor da classe Avaliacoes
-     * @param nomeAtividade o nome da atividade
+     * @param nomeAvaliacao o nome da atividade
      * @param dataEntrega a data de entrega da atividade
      * @param disciplina a disciplina associada à atividade
      * @param peso o peso da nota da atividade
      */
-    public Avaliacoes(String nomeAtividade, LocalDate dataEntrega, String disciplina, double peso) {
-        this.nomeAtividade = nomeAtividade;
+    public Avaliacao(String nomeAvaliacao, LocalDate dataEntrega, Disciplina disciplina, double peso) {
+        this.nomeAvaliacao = nomeAvaliacao;
         this.dataEntrega = dataEntrega;
         this.disciplina = disciplina;
         this.peso = peso;
@@ -27,16 +27,16 @@ public abstract class Avaliacoes implements Comparable<Avaliacoes> {
      * Retorna o nome da atividade
      * @return o nome da atividade
      */
-    public String getNomeAtividade() {
-        return nomeAtividade;
+    public String getnomeAvaliacao() {
+        return nomeAvaliacao;
     }
 
     /**
-     * Altera o nome da atividade para 'nomeAtividade'
-     * @param nomeAtividade o novo nome da atividade
+     * Altera o nome da atividade para 'nomeAvaliacao'
+     * @param nomeAvaliacao o novo nome da atividade
      */
-    public void setNomeAtividade(String nomeAtividade) {
-        this.nomeAtividade = nomeAtividade;
+    public void setnomeAvaliacao(String nomeAvaliacao) {
+        this.nomeAvaliacao = nomeAvaliacao;
     }
 
     /**
@@ -59,7 +59,7 @@ public abstract class Avaliacoes implements Comparable<Avaliacoes> {
      * Retorna a disciplina referente à atividade
      * @return a disciplina referente à atividade
      */
-    public String getDisciplina() {
+    public Disciplina getDisciplina() {
         return disciplina;
     }
 
@@ -67,7 +67,7 @@ public abstract class Avaliacoes implements Comparable<Avaliacoes> {
      * Altera a disciplina para 'disciplina'
      * @param disciplina a nova disciplina
      */
-    public void setDisciplina(String disciplina) {
+    public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
 
@@ -93,7 +93,7 @@ public abstract class Avaliacoes implements Comparable<Avaliacoes> {
      * @return 
      */
     @Override 
-    public int compareTo(Avaliacoes outraAvaliacao) {
+    public int compareTo(Avaliacao outraAvaliacao) {
         return outraAvaliacao.dataEntrega.compareTo(this.dataEntrega);
     }
 

@@ -15,6 +15,6 @@ public interface Filter {
      * @param avaliacoes avaliações que serão filtrados
      * @return as avaliações que serão pesquisadas
      */
-    public List<Avaliacoes> meetCriteria(List<Avaliacoes> avaliacoes);
+    public List<Avaliacao> meetCriteria(List<Avaliacao> avaliacoes);
 
 }

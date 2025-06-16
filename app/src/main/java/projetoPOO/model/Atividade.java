@@ -1,6 +1,6 @@
 package projetoPOO.model;
 
-public class Atividades {
+public class Atividade {
 
     public void adicionarAtividade() {
         

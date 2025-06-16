@@ -3,7 +3,7 @@ package projetoPOO.filter;
 import java.util.ArrayList;
 import java.util.List;
 
-import projetoPOO.model.Avaliacoes;
+import projetoPOO.model.*;
 
 /**
  * Contém a estrutura de implementação de um filtro por nome da disciplina.
@@ -11,17 +11,33 @@ import projetoPOO.model.Avaliacoes;
  * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
  */
 public class AvaliacaoPorDisciplinaFilter implements Filter {
+    private Disciplina disciplinaFiltrar;
 
+    /**
+     * Construtor da classe AvaliacaoPorDisciplinaFilter
+     *
+     * @param disciplinaFiltrar a disciplina a ser usada de filtro
+     */
+    public AvaliacaoPorDisciplinaFilter(Disciplina disciplinaFiltrar){
+        this.disciplinaFiltrar = disciplinaFiltrar;
+    }
+
+    /**
+     * Filtra as avaliações com base na disciplina especificada.
+     *
+     * @param avaliacoes a lista de avaliacoes a ser filtrada
+     * @return a lista de avaliacoes que possuem a disciplina igual a especificada
+     */
     @Override
-    public List<Avaliacoes> meetCriteria(List<Avaliacoes> avaliacoes) {
-        List<Avaliacoes> disciplinas = new ArrayList<>();
+    public List<Avaliacao> meetCriteria(List<Avaliacao> avaliacoes) {
+        List<Avaliacao> listaFiltrados = new ArrayList<>();
 
-        for (Avaliacoes avaliacao : avaliacoes){
-            if(avaliacao.getDisciplina().equals(avaliacao.getDisciplina())){
-                disciplinas.add(avaliacao);
+        for (Avaliacao avaliacao : avaliacoes){
+            if(avaliacao.getDisciplina().equals(this.disciplinaFiltrar)){
+                listaFiltrados.add(avaliacao);
             }
         }
-        return disciplinas;
+        return listaFiltrados;
     }
 
 }

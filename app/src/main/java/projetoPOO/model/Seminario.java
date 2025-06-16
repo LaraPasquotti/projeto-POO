@@ -1,6 +1,6 @@
 package projetoPOO.model;
 
-public class Seminarios {
+public class Seminario {
 
     public void adicionarSeminario() {
         

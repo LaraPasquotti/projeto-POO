@@ -7,12 +7,12 @@ import java.util.ArrayList;
  * 
  * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
  */
-public class Disciplinas {
+public class Disciplina {
 
     private String nomeDisciplina;
     private int numeroLimiteFaltas;
     private int faltasAtuais;
-    private ArrayList<Avaliacoes> avaliacoes;
+    private ArrayList<Avaliacao> avaliacoes;
 
     /**
      * Construtor da classe Disciplina
@@ -20,7 +20,7 @@ public class Disciplinas {
      * @param numeroLimiteFaltas
      * @param faltasAtuais
      */
-    public Disciplinas(String nomeDisciplina, int numeroLimiteFaltas, int faltasAtuais){
+    public Disciplina(String nomeDisciplina, int numeroLimiteFaltas, int faltasAtuais){
         this.nomeDisciplina = nomeDisciplina;
         this.numeroLimiteFaltas = numeroLimiteFaltas;
         this.faltasAtuais = faltasAtuais; 
@@ -98,7 +98,7 @@ public class Disciplinas {
      * Retorna a lista de avaliacoes
      * @return a lista de avaliacoes
      */
-    public ArrayList<Avaliacoes> getAvaliacoes() {
+    public ArrayList<Avaliacao> getAvaliacoes() {
         return avaliacoes;
     }
 
@@ -106,7 +106,7 @@ public class Disciplinas {
      * Altera a lista de avaliacoes
      * @param avaliacoes nova lista de avaliacoes
      */
-    public void setAvaliacoes(ArrayList<Avaliacoes> avaliacoes) {
+    public void setAvaliacoes(ArrayList<Avaliacao> avaliacoes) {
         this.avaliacoes = avaliacoes;
     }
 
