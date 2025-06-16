@@ -1,9 +1,11 @@
-package projetoPOO.model;
+package projetoPOO.filter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AvaliacaoPorNomeDaAtividade implements FiltroPesquisa {
+import projetoPOO.model.Avaliacoes;
+
+public class AvaliacaoPorNomeDaAtividadeFilter implements Filter {
 
     @Override
     public List<Avaliacoes> meetCriteria(List<Avaliacoes> avaliacoes){
