@@ -1,6 +1,6 @@
 package projetoPOO.model;
 
-public class Provas {
+public class Prova {
 
     public void adicionarProva() {
         
