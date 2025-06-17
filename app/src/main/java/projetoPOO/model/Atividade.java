@@ -1,13 +1,11 @@
 package projetoPOO.model;
 
+import java.time.LocalDate;
+
 public class Atividade extends Avaliacao {
 
-    public void adicionarAtividade() {
-        //adicionar na lista de avaliacoes em Disciplina
-    }
-
-    public void removerAtividade() {
-
+    public Atividade(String nomeAvaliacao, LocalDate dataEntrega, Disciplina disciplina, double peso) {
+        super(nomeAvaliacao, dataEntrega, disciplina, peso);
     }
 
 }

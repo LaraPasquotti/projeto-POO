@@ -9,10 +9,6 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
     private Disciplina disciplina;
     private double peso;
 
-    public Avaliacao() {
-
-    }
-
     /**
      * Construtor da classe Avaliacoes
      * @param nomeAvaliacao o nome da atividade
@@ -91,9 +87,12 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
         this.peso = peso;
     }
 
+    /**
+     * Método para comparar as avaliações por data de entrega (mais recente até a mais distante)
+     */
     @Override 
-    public int compareTo() {
-        
+    public int compareTo(Avaliacao outraAvaliacao) {
+        return this.dataEntrega.compareTo(outraAvaliacao.getDataEntrega());
     }
 
 

@@ -1,13 +1,10 @@
 package projetoPOO.model;
 
-public class Seminario extends Avaliacao{
+import java.time.LocalDate;
 
-    public void adicionarSeminario() {
-        
+public class Seminario extends Avaliacao {
+
+    public Seminario(String nomeAvaliacao, LocalDate dataEntrega, Disciplina disciplina, double peso) {
+        super(nomeAvaliacao, dataEntrega, disciplina, peso);
     }
-
-    public void removerSeminario() {
-
-    }
-
 }
