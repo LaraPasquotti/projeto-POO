@@ -87,9 +87,12 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
         this.peso = peso;
     }
 
+    /**
+     * Método para comparar as avaliações por data de entrega (mais recente até a mais distante)
+     */
     @Override 
-    public int compareTo() {
-        
+    public int compareTo(Avaliacao outraAvaliacao) {
+        return this.dataEntrega.compareTo(outraAvaliacao.getDataEntrega());
     }
 
 
