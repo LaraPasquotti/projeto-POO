@@ -25,7 +25,6 @@ public class Disciplina {
         this.numeroLimiteFaltas = numeroLimiteFaltas;
         this.faltasAtuais = faltasAtuais; 
         this.avaliacoes = new ArrayList<>();
-
     }
 
     /**
@@ -36,6 +35,7 @@ public class Disciplina {
         this.faltasAtuais ++;
     }
 
+    
     public void calcularMedia(){
 
     }
@@ -44,6 +44,22 @@ public class Disciplina {
     public void removerFaltas(){
         this.faltasAtuais --;
 
+    }
+
+    /**
+     * Método para adicionar uma avaliação na lista de avaliações
+     * @param avaliacao nova avaliação a ser adicionada
+     */
+    public void adicionarAvaliacao(Avaliacao avaliacao) {
+        avaliacoes.add(avaliacao);
+    }
+
+    /**
+     * Método para remover uma avaliação na lista de avaliações
+     * @param avaliacao a avaliação a ser removida
+     */
+    public void removerAvaliacao(Avaliacao avaliacao) {
+        avaliacoes.remove(avaliacao);
     }
 
     /**
