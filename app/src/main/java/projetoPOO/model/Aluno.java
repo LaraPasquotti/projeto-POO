@@ -2,6 +2,7 @@ package projetoPOO.model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Contém a implementação de Aluno.
  *
@@ -9,7 +10,7 @@ import java.util.List;
  */
 
 public class Aluno {
-    private String nomeAluno; 
+    private String nome; 
     private String email;
     private String senha;
     private List<Disciplina> disciplinasAluno = new ArrayList<>();
@@ -22,17 +23,9 @@ public class Aluno {
      * @param senha senha do aluno
      */
     public Aluno(String nome, String email, String senha){
-        this.nomeAluno = nome;
+        this.nome = nome;
         this.email = email;
         this.senha = senha;
-    }
-
-    /**
-     * Construtor da classe Aluno
-     *
-     */
-    public Aluno(){
-
     }
 
     /**
@@ -47,6 +40,9 @@ public class Aluno {
         this.disciplinasAluno.add(novaDisciplina);
     }
 
+    public void adicionarDisciplina(Disciplina disciplina){
+        this.disciplinasAluno.add(disciplina);
+    }
     /**
      * Busca na lista de disciplinas do aluno uma disciplina pelo nome;
      *
@@ -76,16 +72,16 @@ public class Aluno {
      * 
      * @return
      */
-    public String getNomeAluno() {
-        return nomeAluno;
+    public String getNome() {
+        return nome;
     }
 
     /**
      * 
-     * @param nomeAluno
+     * @param nome
      */
-    public void setNomeAluno(String nomeAluno) {
-        this.nomeAluno = nomeAluno;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     /**

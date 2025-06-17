@@ -3,8 +3,7 @@ package projetoPOO;
 import org.junit.jupiter.api.Test;
 
 import projetoPOO.model.*;
-import projetoPOO.notifications.*;
-import projetoPOO.exception.*;
+import projetoPOO.exceptions.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
