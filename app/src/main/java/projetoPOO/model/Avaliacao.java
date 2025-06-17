@@ -10,7 +10,7 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
     private double peso;
 
     public Avaliacao() {
-        
+
     }
 
     /**
@@ -91,14 +91,9 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
         this.peso = peso;
     }
 
-    /**
-     * Método para comparar datas das avaliações
-     * @param outraAvaliacao a outra avaliação a ser comparada
-     * @return 
-     */
     @Override 
-    public int compareTo(Avaliacao outraAvaliacao) {
-        return outraAvaliacao.dataEntrega.compareTo(this.dataEntrega);
+    public int compareTo() {
+        
     }
 
 
