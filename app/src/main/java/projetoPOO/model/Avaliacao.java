@@ -9,6 +9,10 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
     private Disciplina disciplina;
     private double peso;
 
+    public Avaliacao() {
+        
+    }
+
     /**
      * Construtor da classe Avaliacoes
      * @param nomeAvaliacao o nome da atividade
