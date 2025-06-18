@@ -27,6 +27,8 @@ public class Disciplina {
         this.avaliacoes = new ArrayList<>();
     }
 
+    public Disciplina(){}
+
     /**
      * Método de adicionar faltas
      * @param faltasAtuais
