@@ -42,14 +42,5 @@ public class DadosAlunos extends Dados<Aluno>{
         }
     }
 
-    public void buscarAluno(String nome){
-        for(Aluno aluno : this.lista){
-            if(aluno.getNome().equals(nome)){
-                System.out.println("Aluno encontrado");
-                return;
-            }
-        }
-        System.out.println("Aluno não está no banco");
-    }
 }
 

@@ -22,6 +22,9 @@ import projetoPOO.dados.DadosAlunos;
 public class App {
     
     public static void main(String[] args) throws IOException{
-        DadosAlunos.getInstancia().buscarAluno("João");
+        Aluno alunoLogado = AutenticarAluno.login("joao@email.com", "237");
+        if(alunoLogado != null){
+            System.out.println(alunoLogado.getNome());
+        }
     } 
 }
