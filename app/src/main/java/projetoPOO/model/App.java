@@ -26,5 +26,14 @@ public class App {
         if(alunoLogado != null){
             System.out.println(alunoLogado.getNome());
         }
+
+        Disciplina disciplinaTeste = new Disciplina("cálculo3", 11, 2);
+        Aluno alunoTeste2 = new Aluno("Victor2", "victor2@gmail.com", "1245");
+        alunoTeste2.adicionarDisciplina(disciplinaTeste);
+        Disciplina disciplinaTeste2 = new Disciplina("cálculo2", 11, 2);
+        alunoTeste2.adicionarDisciplina(disciplinaTeste2);
+
+
+        DadosAlunos.getInstancia().adicionar(alunoTeste2);
     } 
 }

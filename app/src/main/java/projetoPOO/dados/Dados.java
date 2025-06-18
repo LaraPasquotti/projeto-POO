@@ -29,6 +29,10 @@ public abstract class Dados<T> {
 
     public abstract List<T> carregarDoJson();
 
+    public void salvar(){
+        salvarNoJson(getLista());
+    }
+
 }
 
 

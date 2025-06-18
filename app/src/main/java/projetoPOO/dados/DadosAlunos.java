@@ -35,7 +35,7 @@ public class DadosAlunos extends Dados<Aluno>{
     public List<Aluno> carregarDoJson(){
         try {
             if (!arquivoAlunos.exists()) return new ArrayList<>();
-            return Arrays.asList(mapper.readValue(arquivoAlunos, Aluno[].class));
+            return new ArrayList<>(Arrays.asList(mapper.readValue(arquivoAlunos, Aluno[].class)));
         } catch (IOException e) {
             e.printStackTrace();
             return new ArrayList<>();

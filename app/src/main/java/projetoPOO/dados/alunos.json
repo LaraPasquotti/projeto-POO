@@ -1,13 +1,16 @@
 [ {
-  "nome" : "Lara",
-  "email" : "lara@email.com",
-  "senha" : "123",
-  "disciplinasAluno" : [ ]
-}, 
-{
-  "nome" : "João",
-  "email" : "joao@email.com",
-  "senha" : "237",
-  "disciplinasAluno" : [ ]
-}
-]
+  "nome" : "Victor2",
+  "email" : "victor2@gmail.com",
+  "senha" : "1245",
+  "disciplinasAluno" : [ {
+    "nomeDisciplina" : "cálculo3",
+    "numeroLimiteFaltas" : 11,
+    "faltasAtuais" : 2,
+    "avaliacoes" : [ ]
+  }, {
+    "nomeDisciplina" : "cálculo2",
+    "numeroLimiteFaltas" : 11,
+    "faltasAtuais" : 2,
+    "avaliacoes" : [ ]
+  } ]
+} ]
