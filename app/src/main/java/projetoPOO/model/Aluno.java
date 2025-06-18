@@ -28,6 +28,10 @@ public class Aluno {
         this.senha = senha;
     }
 
+    public Aluno(){
+        
+    }
+
     /**
      * Cria uma disciplina e adiciona a lista de disciplinas do aluno
      *
