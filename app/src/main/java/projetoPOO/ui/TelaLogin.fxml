@@ -11,22 +11,28 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="93.0" layoutY="260.0">
+      <TextField layoutX="88.0" layoutY="263.0" text="Digite seu email...">
          <effect>
             <Bloom />
          </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </TextField>
-      <TextField layoutX="93.0" layoutY="320.0">
+      <TextField layoutX="87.0" layoutY="320.0" text="Digite sua senha...">
          <effect>
             <Bloom />
          </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </TextField>
-      <Text layoutX="93.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+      <Text layoutX="88.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
          <font>
             <Font name="Dubai Regular" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="93.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:">
+      <Text layoutX="87.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:">
          <font>
             <Font name="Dubai Regular" size="12.0" />
          </font>
@@ -36,7 +42,7 @@
             <Font name="Dubai Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="268.0" fitWidth="268.0" layoutX="34.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="268.0" fitWidth="268.0" layoutX="34.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../Downloads/ARREDONDA%20AÍ,-Photoroom.png" />
          </image>
