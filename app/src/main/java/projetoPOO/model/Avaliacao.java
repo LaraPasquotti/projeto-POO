@@ -96,18 +96,34 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
         return this.dataEntrega.compareTo(outraAvaliacao.getDataEntrega());
     }
 
+    /**
+     * Retorna o nome da avaliacao
+     * @return o nome da avaliacao
+     */
     public String getNomeAvaliacao() {
         return nomeAvaliacao;
     }
 
+    /**
+     * Altera o nome da avaliacao
+     * @param nomeAvaliacao o novo nome da avaliacao
+     */
     public void setNomeAvaliacao(String nomeAvaliacao) {
         this.nomeAvaliacao = nomeAvaliacao;
     }
 
+    /**
+     * Retorna a nota
+     * @return a nota da avalicao
+     */
     public double getNota() {
         return nota;
     }
 
+    /**
+     * Altera a nota
+     * @param nota a nova nota da avaliacao
+     */
     public void setNota(double nota) {
         this.nota = nota;
     }
