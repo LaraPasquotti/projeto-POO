@@ -8,14 +8,23 @@ import java.time.LocalDate;
  */
 public class Seminario extends Avaliacao {
 
+
+
     /**
-     * Construtor da subclasse Seminario
-     * @param nomeAvaliacao o nome 
-     * @param dataEntrega a data de entrega
-     * @param disciplina a disciplina do seminario
-     * @param peso o peso do seminario
+     * Construtor default da classe Seminario caso seja necessário para o Json
      */
-    public Seminario(String nomeAvaliacao, LocalDate dataEntrega, Disciplina disciplina, double peso) {
-        super(nomeAvaliacao, dataEntrega, disciplina, peso);
+    public Seminario(){  
+    }
+
+
+    /**
+     * Construtor classe Seminario
+     * @param nomeSeminario nome do seminario
+     * @param dataApresentacao data da apresentação do seminario
+     * @param disciplina Disciplina do Seminario
+     * @param peso peso do Seminario
+     */ 
+    public Seminario(String nomeSeminario, LocalDate dataApresentacao, Disciplina disciplina, double peso) {
+        super(nomeSeminario, dataApresentacao, disciplina, peso);
     }
 }
