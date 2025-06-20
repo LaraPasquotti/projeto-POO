@@ -8,6 +8,7 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
     private LocalDate dataEntrega;
     private Disciplina disciplina;
     private double peso;
+    private double nota;
 
     /**
      * Construtor da classe Avaliacoes
@@ -95,6 +96,23 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
         return this.dataEntrega.compareTo(outraAvaliacao.getDataEntrega());
     }
 
+    public String getNomeAvaliacao() {
+        return nomeAvaliacao;
+    }
+
+    public void setNomeAvaliacao(String nomeAvaliacao) {
+        this.nomeAvaliacao = nomeAvaliacao;
+    }
+
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+
+    
 
 }
 

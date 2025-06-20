@@ -37,8 +37,28 @@ public class Disciplina {
         this.faltasAtuais ++;
     }
 
-    
-    public void calcularMedia(){
+    /**
+     * Método de calculo da média
+     * @return a média das notas 
+     */
+    public double calcularMedia(){
+        if (this.avaliacoes.isEmpty()){
+            return 0.0;
+        }
+
+        double somaNotasPonderadas = 0.0;
+        double somaPesos = 0.0;
+
+        for (Avaliacao avaliacao : this.avaliacoes){
+            somaNotasPonderadas += avaliacao.getNota() * avaliacao.getPeso();
+            somaPesos += avaliacao.getPeso();
+        }
+
+        if (somaPesos == 0){
+            return 0.0;
+        }
+
+        return somaNotasPonderadas / somaPesos;
 
     }
 
