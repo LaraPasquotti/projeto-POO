@@ -9,21 +9,14 @@ import java.time.LocalDate;
 public class Prova extends Avaliacao {
 
     /**
-     * Construtor default da classe Prova caso seja necessário para o Json
+     * Contrutor da subclasse Prova
+     * @param nomeAvaliacao o nome da prova
+     * @param dataEntrega a data de entrega da prova
+     * @param disciplina a disciplina da prova
+     * @param peso o peso da prova
      */
-    public Prova(){
-
-    }
-
-    /**
-     * Construtor classe Prova
-     * @param nomeProva nome da prova
-     * @param dataProva data da prova
-     * @param disciplina Disciplina da prova
-     * @param peso peso da prova
-     */ 
-    public Prova(String nomeProva, LocalDate dataProva, Disciplina disciplina, double peso) {
-        super(nomeProva, dataProva, disciplina, peso);
+    public Prova(String nomeAvaliacao, LocalDate dataEntrega, Disciplina disciplina, double peso) {
+        super(nomeAvaliacao, dataEntrega, disciplina, peso);
     }
 
 }

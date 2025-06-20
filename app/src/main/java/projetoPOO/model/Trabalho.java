@@ -8,22 +8,15 @@ import java.time.LocalDate;
  */
 public class Trabalho extends Avaliacao {
 
-
     /**
-     * Construtor default da classe Trabalho caso seja necessário para o Json
+     * Constutor da subclasse Trabalho
+     * @param nomeAvaliacao o nome 
+     * @param dataEntrega a data de entrega
+     * @param disciplina a disciplina do trabalho
+     * @param peso o peso do trabalho
      */
-    public Trabalho(){
-    }
-
-    /**
-     * Construtor classe Trabalho
-     * @param nomeTrabalho nome do Trabalho
-     * @param dataEntrega data de entrega do Trabalho
-     * @param disciplina Disciplina do Trabalho
-     * @param peso peso do Trabalho
-     */ 
-    public Trabalho(String nomeTrabalho, LocalDate dataEntrega, Disciplina disciplina, double peso) {
-        super(nomeTrabalho, dataEntrega, disciplina, peso);
+    public Trabalho(String nomeAvaliacao, LocalDate dataEntrega, Disciplina disciplina, double peso) {
+        super(nomeAvaliacao, dataEntrega, disciplina, peso);
     }
 
 }
