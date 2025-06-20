@@ -36,9 +36,9 @@
             <Font name="Dubai Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="93.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="268.0" fitWidth="268.0" layoutX="34.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Downloads/book.png" />
+            <Image url="@../../../../../../../Downloads/ARREDONDA%20AÍ,-Photoroom.png" />
          </image>
       </ImageView>
    </children>
