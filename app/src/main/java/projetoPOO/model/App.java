@@ -1,39 +1,49 @@
 /*
  * Material usado na disciplina MC322 - Programação orientada a objetos.
  */
-
 package projetoPOO.model;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import projetoPOO.dados.*;
-import projetoPOO.dados.DadosAlunos;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Scanner;
+
+import projetoPOO.dados.DadosAlunos;
 
 /**
  * Contém a estrutura de implementação da aplicação.
  *
  * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
- * 
- *  */
-
-
+ *
+ *
+ */
 public class App {
-    
-    public static void main(String[] args) throws IOException{
-        Aluno alunoLogado = AutenticarAluno.login("joao@email.com", "237");
-        if(alunoLogado != null){
+
+    public static void main(String[] args) throws IOException {
+/*
+        //Aluno novoAluno = new Aluno("Joao", "joao@gmail.com", "123");
+        //DadosAlunos.getInstancia().adicionar(novoAluno);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite o email: ");
+        String email = scanner.nextLine();
+
+        System.out.println("Digite a senha: ");
+        String senha = scanner.nextLine();
+
+        Aluno alunoLogado = AutenticarAluno.login(email, senha);
+        if (alunoLogado != null) {
             System.out.println(alunoLogado.getNome());
         }
+        
+        Disciplina disciplinaPoo = new Disciplina("POO", 10, 2);
 
-        Disciplina disciplinaTeste = new Disciplina("cálculo3", 11, 2);
-        Aluno alunoTeste2 = new Aluno("Victor2", "victor2@gmail.com", "1245");
-        alunoTeste2.adicionarDisciplina(disciplinaTeste);
-        Disciplina disciplinaTeste2 = new Disciplina("cálculo2", 11, 2);
-        alunoTeste2.adicionarDisciplina(disciplinaTeste2);
+        LocalDate hoje = LocalDate.now();
+        Seminario novaAvaliacao = new Seminario("seminario POO", hoje, disciplinaPoo, 3);
 
+        Disciplina disciplinaAddAvaliacao = alunoLogado.buscarDisciplina(novaAvaliacao.getDisciplina().getNomeDisciplina());
+        disciplinaAddAvaliacao.adicionarAvaliacao(novaAvaliacao);
 
-        DadosAlunos.getInstancia().adicionar(alunoTeste2);
-    } 
+        //alunoLogado.adicionarDisciplina(disciplinaPoo);
+        DadosAlunos.getInstancia().salvar();*/
+    }
 }
