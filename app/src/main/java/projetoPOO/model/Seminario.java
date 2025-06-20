@@ -4,7 +4,22 @@ import java.time.LocalDate;
 
 public class Seminario extends Avaliacao {
 
-    public Seminario(String nomeAvaliacao, LocalDate dataEntrega, Disciplina disciplina, double peso) {
-        super(nomeAvaliacao, dataEntrega, disciplina, peso);
+
+    /**
+     * Construtor default da classe Seminario caso seja necessário para o Json
+     */
+    public Seminario(){  
+    }
+
+
+    /**
+     * Construtor classe Seminario
+     * @param nomeSeminario nome do seminario
+     * @param dataApresentacao data da apresentação do seminario
+     * @param disciplina Disciplina do Seminario
+     * @param peso peso do Seminario
+     */ 
+    public Seminario(String nomeSeminario, LocalDate dataApresentacao, Disciplina disciplina, double peso) {
+        super(nomeSeminario, dataApresentacao, disciplina, peso);
     }
 }

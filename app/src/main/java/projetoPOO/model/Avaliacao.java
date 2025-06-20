@@ -1,11 +1,28 @@
 package projetoPOO.model;
-
 import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+
+@JsonTypeInfo(
+    use = JsonTypeInfo.Id.NAME,
+    include = JsonTypeInfo.As.PROPERTY,
+    property = "tipo"
+)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Prova.class, name = "prova"),
+    @JsonSubTypes.Type(value = Trabalho.class, name = "trabalho"),
+    @JsonSubTypes.Type(value = Seminario.class, name = "seminario")
+    // coloque todas que existem no seu projeto
+})
 
 public abstract class Avaliacao implements Comparable<Avaliacao> {
 
     private String nomeAvaliacao;
     private LocalDate dataEntrega;
+    @JsonIgnore
     private Disciplina disciplina;
     private double peso;
 
@@ -21,6 +38,13 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
         this.dataEntrega = dataEntrega;
         this.disciplina = disciplina;
         this.peso = peso;
+    }
+
+    /**
+     * Construtor default da classe Avaliacao caso seja necessário para o Json
+     */
+    public Avaliacao(){
+
     }
 
     /**
