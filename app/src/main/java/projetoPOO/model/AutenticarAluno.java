@@ -3,6 +3,11 @@ package projetoPOO.model;
 import projetoPOO.exceptions.*;
 import projetoPOO.dados.DadosAlunos;
 
+/**
+ * Contém a estrutura de implementação da classe AutenticarAluno
+ * 
+ * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
+ */
 public class AutenticarAluno {
     
     /**
@@ -25,7 +30,7 @@ public class AutenticarAluno {
      */    
     private static void verificarSenha(String senha, Aluno aluno) throws SenhaIncorretaException{
         if(aluno.getSenha().equals(senha)){
-            return;
+
         }
         else{
             throw new SenhaIncorretaException("Senha incorreta");
@@ -43,9 +48,7 @@ public class AutenticarAluno {
             verificarSenha(senha, aluno);
             return aluno;
 
-        } catch(UsuarioNaoEncontradoException e){
-            System.out.println(e.getMessage());
-        } catch (SenhaIncorretaException e){
+        } catch(UsuarioNaoEncontradoException | SenhaIncorretaException e){
             System.out.println(e.getMessage());
         }
         return null;

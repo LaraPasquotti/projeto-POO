@@ -1,8 +1,13 @@
 package projetoPOO.model;
-
 import java.time.LocalDate;
 
+/**
+ * Contém a estrutura de implementação de Seminario
+ * 
+ * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
+ */
 public class Seminario extends Avaliacao {
+
 
 
     /**
