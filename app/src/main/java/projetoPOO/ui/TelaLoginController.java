@@ -7,18 +7,36 @@ import javafx.scene.control.TextField;
 import projetoPOO.model.Aluno;
 import projetoPOO.model.AutenticarAluno;
 
+/**
+ * Contém a estrutura de implementação de um controller para a tela de login
+ * 
+ * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
+ */
 public class TelaLoginController {
 
+    
     @FXML
+    /**
+     * Campo de texto para o email
+     */
     private TextField campoEmail;
 
+    /**
+     * Campo de texto para a senha
+     */
     @FXML
     private TextField campoSenha;
 
+    /**
+     * Botão para logar
+     */
     @FXML
     private Button btnLogin;
 
     @FXML
+    /**
+     * Método de logar
+     */
     private void loginAluno(){
         String emailDigitado = campoEmail.getText();
         String senhaDigitada = campoSenha.getText();
@@ -32,6 +50,9 @@ public class TelaLoginController {
         }
     }
 
+    /**
+     * Método de exibir um alerta de erro caso a senha e/ou o email estejam errados
+     */
     private void exibirAlertaDeErro(String mensagem){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erro de Login");
