@@ -28,34 +28,33 @@ public class Aluno {
         this.senha = senha;
     }
 
+    /**
+     * Construtor default da classe Aluno caso seja necessário para o Json
+     */
     public Aluno(){
-        
     }
 
     /**
-     * Cria uma disciplina e adiciona a lista de disciplinas do aluno
+     * Adiciona uma disciplina a lista de disciplinas do aluno se ela ainda não existir
      *
-     * @param nomeDisciplina nome da disciplina
-     * @param numeroLimiteFaltas numero limite de faltas da disciplina
-     * @param faltasAtuais faltas atuais do aluno
+     * @param disciplina disciplina a ser adicionada na lista de disciplinas do aluno;
      */
-    public void adicionarDisciplina(String nomeDisciplina, int numeroLimiteFaltas, int faltasAtuais){
-        Disciplina novaDisciplina = new Disciplina(nomeDisciplina, numeroLimiteFaltas, faltasAtuais);
-        this.disciplinasAluno.add(novaDisciplina);
-    }
-
     public void adicionarDisciplina(Disciplina disciplina){
+        if(buscarDisciplina(disciplina.getNomeDisciplina()) != null){
+            return;
+        }
         this.disciplinasAluno.add(disciplina);
     }
+
     /**
      * Busca na lista de disciplinas do aluno uma disciplina pelo nome;
      *
      * @param nomeDisciplina nome da disciplina buscada
      * @return disciplina encontrada com o nomeDisciplina
      */
-    private Disciplina buscarDisciplina (String nomeDisciplina){
+    protected Disciplina buscarDisciplina (String nomeDisciplina){
         for(Disciplina disciplina : this.disciplinasAluno){
-            if(disciplina.getNomeDisciplina().equals(nomeDisciplina)){
+            if(disciplina.getNomeDisciplina().equalsIgnoreCase(nomeDisciplina)){
                 return disciplina;
             }
         }
@@ -73,15 +72,15 @@ public class Aluno {
     }
 
     /**
-     * 
-     * @return
+     * Retorna o nome do aluno
+     * @return nome do aluno
      */
     public String getNome() {
         return nome;
     }
 
     /**
-     * 
+     * Atuliza o nome do aluno para nome
      * @param nome
      */
     public void setNome(String nome) {
@@ -89,15 +88,15 @@ public class Aluno {
     }
 
     /**
-     * 
-     * @return
+     * Retorna o email do aluno
+     * @return email do aluno
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * 
+     * Atualiza o email do aluno
      * @param email
      */
     public void setEmail(String email) {
@@ -105,15 +104,7 @@ public class Aluno {
     }
 
     /**
-     * 
-     * @return
-     */
-    public String getSenha() {
-        return senha;
-    }
-
-    /**
-     * 
+     * Atualiza a senha do aluno 
      * @param senha
      */
     public void setSenha(String senha) {
@@ -121,19 +112,27 @@ public class Aluno {
     }
 
     /**
-     * 
-     * @return
+     * Retorna a lista de disciplinas do aluno
+     * @return lista de disciplinas do aluno
      */
     public List<Disciplina> getDisciplinasAluno() {
         return disciplinasAluno;
     }
 
     /**
-     * 
+     * Atualiza a lista de disciplinas do aluno
      * @param disciplinasAluno
      */
     public void setDisciplinasAluno(List<Disciplina> disciplinasAluno) {
         this.disciplinasAluno = disciplinasAluno;
+    }
+
+    /**
+     * Retorna a senha do aluno
+     * @return senha Aluno
+     */
+    protected String getSenha(){
+        return this.senha;
     }
 
     
