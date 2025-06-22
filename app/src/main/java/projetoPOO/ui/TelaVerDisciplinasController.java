@@ -6,8 +6,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import projetoPOO.dados.DadosAlunos;
 import projetoPOO.model.Disciplina;
 
@@ -65,7 +68,26 @@ public class TelaVerDisciplinasController {
             campoNumeroFaltasAtuais.setText(oldValue);
         }
         });
-        System.out.println("Tela carregada com sucesso!");
+
+        listaDisciplinas.setCellFactory(d -> new javafx.scene.control.ListCell<>() {
+            @Override
+            protected void updateItem(Disciplina disciplina, boolean empty) {
+                super.updateItem(disciplina, empty);
+                if (empty || disciplina == null) {
+                    setGraphic(null);
+                } else {
+                    Label nomeLabel = new Label(disciplina.getNomeDisciplina());
+                    nomeLabel.setStyle("-fx-font-weight: bold;");
+
+                    Label faltasLabel = new Label(disciplina.getFaltasAtuais() + "/" + disciplina.getNumeroLimiteFaltas() + " faltas");
+                    faltasLabel.setStyle("-fx-text-fill: #666;");
+
+                    HBox box = new HBox(10, nomeLabel, faltasLabel);
+                    HBox.setHgrow(nomeLabel, Priority.ALWAYS);
+                    setGraphic(box);
+                }
+            }
+        });
     }
 
     /**
