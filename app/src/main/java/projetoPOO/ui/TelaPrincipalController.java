@@ -5,6 +5,6 @@ package projetoPOO.ui;
  * 
  * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
  */
-public class TelaPrincipalControler {
+public class TelaPrincipalController {
 
 }

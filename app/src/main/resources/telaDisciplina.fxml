@@ -7,12 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoPOO.ui.TelaDisciplinaController">
    <children>
       <Label layoutX="23.0" layoutY="111.0" prefHeight="36.0" prefWidth="289.0" style="-fx-border-color: #555; -fx-border-width: 1; -fx-border-radius: 4; -fx-padding: 4 6 4 6;" text="Faltas" />
-      <Spinner layoutX="235.0" layoutY="116.0" prefHeight="26.0" prefWidth="71.0" />
-      <MenuButton layoutX="23.0" layoutY="166.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="289.0" text="Média final">
+      <Spinner fx:id="faltasAtuais" layoutX="235.0" layoutY="116.0" prefHeight="26.0" prefWidth="71.0" />
+      <MenuButton fx:id="mediaFinal" layoutX="23.0" layoutY="166.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="289.0" text="Avaliações">
         <items>
             <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
               <content>
@@ -21,5 +20,6 @@
             </CustomMenuItem>
         </items>
       </MenuButton>
+      <Label fx:id="resultadoMedia" layoutX="23.0" layoutY="521.0" prefHeight="36.0" prefWidth="289.0" style="-fx-border-color: #555; -fx-border-radius: 4; -fx-padding: 4 6 4 6;" text="Média:" />
    </children>
 </AnchorPane>
