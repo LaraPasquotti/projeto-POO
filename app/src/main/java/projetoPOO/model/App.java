@@ -6,6 +6,8 @@ package projetoPOO.model;
 import java.io.IOException;
 import java.util.Scanner;
 
+import projetoPOO.dados.DadosAlunos;
+
 /**
  * Contém a estrutura de implementação da aplicação.
  *
@@ -32,15 +34,15 @@ public class App {
             System.out.println(alunoLogado.getNome());
         }
         
-        /*Disciplina disciplinaPoo = new Disciplina("POO", 10, 2);
+        Disciplina disciplinaPoo = new Disciplina("POO", 10, 2);
 
-        LocalDate hoje = LocalDate.now();
+        /*LocalDate hoje = LocalDate.now();
         Seminario novaAvaliacao = new Seminario("seminario POO", hoje, disciplinaPoo, 3);
 
         Disciplina disciplinaAddAvaliacao = alunoLogado.buscarDisciplina(novaAvaliacao.getDisciplina().getNomeDisciplina());
-        disciplinaAddAvaliacao.adicionarAvaliacao(novaAvaliacao);
+        disciplinaAddAvaliacao.adicionarAvaliacao(novaAvaliacao);*/
 
-        //alunoLogado.adicionarDisciplina(disciplinaPoo);
-        DadosAlunos.getInstancia().salvar();*/
+        alunoLogado.adicionarDisciplina(disciplinaPoo);
+        DadosAlunos.getInstancia().salvar();
     }
 }

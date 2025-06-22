@@ -1,42 +1,38 @@
-[
-  {
-    "nome": "Joao",
-    "email": "joao@gmail.com",
-    "senha": "123",
-    "disciplinasAluno": [
-      {
-        "nomeDisciplina": "POO",
-        "numeroLimiteFaltas": 10,
-        "faltasAtuais": 2,
-        "avaliacoes": [
-          {
-            "tipo": "prova",
-            "nomeAvaliacao": "projeto POO",
-            "dataEntrega": [
-              2025,
-              6,
-              20
-            ],
-            "peso": 3.0
-          },
-          {
-            "tipo": "seminario",
-            "nomeAvaliacao": "seminario POO",
-            "dataEntrega": [
-              2025,
-              6,
-              20
-            ],
-            "peso": 3.0
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "nome": "Maria",
-    "email": "maria",
-    "senha": "123",
-    "disciplinasAluno": []
-  }
-]
+[ {
+  "nome" : "Joao",
+  "email" : "joao@gmail.com",
+  "senha" : "123",
+  "disciplinasAluno" : [ {
+    "nomeDisciplina" : "POO",
+    "numeroLimiteFaltas" : 10,
+    "faltasAtuais" : 2,
+    "avaliacoes" : [ {
+      "tipo" : "prova",
+      "nomeAvaliacao" : "projeto POO",
+      "dataEntrega" : [ 2025, 6, 20 ],
+      "peso" : 3.0,
+      "nota" : 0.0
+    }, {
+      "tipo" : "seminario",
+      "nomeAvaliacao" : "seminario POO",
+      "dataEntrega" : [ 2025, 6, 20 ],
+      "peso" : 3.0,
+      "nota" : 0.0
+    } ]
+  } ]
+}, {
+  "nome" : "Maria",
+  "email" : "maria",
+  "senha" : "123",
+  "disciplinasAluno" : [ {
+    "nomeDisciplina" : "calculo",
+    "numeroLimiteFaltas" : 11,
+    "faltasAtuais" : 1,
+    "avaliacoes" : [ ]
+  }, {
+    "nomeDisciplina" : "Fisica",
+    "numeroLimiteFaltas" : 5,
+    "faltasAtuais" : 1,
+    "avaliacoes" : [ ]
+  } ]
+} ]

@@ -131,7 +131,7 @@ public class Aluno {
      * Retorna a senha do aluno
      * @return senha Aluno
      */
-    protected String getSenha(){
+    public String getSenha(){
         return this.senha;
     }
 

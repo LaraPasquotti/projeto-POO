@@ -78,8 +78,8 @@ public class TelaVerDisciplinasController {
         int numeroFaltasAtuais = Integer.parseInt(campoNumeroFaltasAtuais.getText());
         Disciplina novaDisciplina = new Disciplina(nomeDisciplina, numeroLimiteFaltas, numeroFaltasAtuais);
         TelaLoginController.alunoLogado.adicionarDisciplina(novaDisciplina);
-        DadosAlunos.getInstancia().salvar();
         this.obsDisciplinas.add(novaDisciplina);
+        DadosAlunos.getInstancia().salvar();
         System.out.println(novaDisciplina.getNomeDisciplina() + " " + novaDisciplina.getNumeroLimiteFaltas() + " " + novaDisciplina.getFaltasAtuais());
     }
 
