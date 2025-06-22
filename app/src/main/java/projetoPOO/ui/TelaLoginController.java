@@ -1,7 +1,6 @@
 package projetoPOO.ui;
 
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import projetoPOO.model.Aluno;
 import projetoPOO.model.AutenticarAluno;
+
 /**
  * Contém a estrutura de implementação de um controller para a tela de login
  * 
@@ -44,25 +44,37 @@ public class TelaLoginController {
     /**
      * Método de logar
      */
-    private void loginAluno(ActionEvent event){
+    private void loginAluno(ActionEvent event) {
         String emailDigitado = campoEmail.getText().trim();
         String senhaDigitada = campoSenha.getText().trim();
 
         Aluno logarAluno = AutenticarAluno.login(emailDigitado, senhaDigitada);
 
-        if (logarAluno != null){
-            this.alunoLogado = logarAluno;
-            System.out.println("O login funcionou");    
-            
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TelaPrincipal.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }        
+        if (logarAluno != null) {
+            TelaLoginController.alunoLogado = logarAluno; 
+            System.out.println("O login funcionou");
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/TelaPrincipal.fxml"));
+                Parent root = loader.load();
+
+                
+                TelaPrincipalController principalController = loader.getController();
+
+                
+                principalController.setAlunoLogado(alunoLogado);
+               
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                
+                
+                stage.setScene(new Scene(root, 335, 600)); 
+                stage.setTitle("Minhas Avaliações"); 
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } 
     }
 
@@ -77,3 +89,4 @@ public class TelaLoginController {
         alert.showAndWait();
     }
 }
+

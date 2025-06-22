@@ -136,6 +136,12 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
         this.nota = nota;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s - Entrega: %s", 
+        this.getnomeAvaliacao(), this.getDataEntrega().toString());
+    }   
+
     
 
 }
