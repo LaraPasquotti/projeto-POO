@@ -19,6 +19,9 @@ public class Trabalho extends Avaliacao {
         super(nomeAvaliacao, dataEntrega, disciplina, peso);
     }
 
+    /**
+    * Construtor Default para uso do Json
+    */
     public Trabalho(){
     }
 

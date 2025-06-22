@@ -62,7 +62,9 @@ public class Disciplina {
 
     }
 
-
+    /**
+     * Método para diminuir o número de faltas em uma unidade.
+     */
     public void removerFaltas(){
         this.faltasAtuais --;
 

@@ -19,8 +19,10 @@ public class Prova extends Avaliacao {
         super(nomeAvaliacao, dataEntrega, disciplina, peso);
     }
 
+    /**
+     * Construtor Default para uso do Json
+     */
     public Prova(){
-        
     }
 
 }

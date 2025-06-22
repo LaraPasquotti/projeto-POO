@@ -5,6 +5,12 @@ import java.util.List;
 
 import projetoPOO.model.Avaliacao;
 
+/**
+ * Contém a estrutura de implementação de um filtro por nome.
+ * 
+ * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
+ */
+
 public class AvaliacaoPorNomeFilter implements Filter {
     private String nomeFiltrar;
 

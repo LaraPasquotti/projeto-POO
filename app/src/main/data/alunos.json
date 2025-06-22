@@ -1,0 +1,57 @@
+[
+  {
+    "nome": "Joao",
+    "email": "joao@gmail.com",
+    "senha": "123",
+    "disciplinasAluno": [
+      {
+        "nomeDisciplina": "Programação orientada a objetos",
+        "numeroLimiteFaltas": 10,
+        "faltasAtuais": 2,
+        "avaliacoes": [
+          {
+            "tipo": "prova",
+            "nomeAvaliacao": "Projeto POO",
+            "dataEntrega": [
+              2025,
+              6,
+              20
+            ],
+            "peso": 3.0,
+            "nota": 0.0
+          },
+          {
+            "tipo": "seminario",
+            "nomeAvaliacao": "Seminário POO",
+            "dataEntrega": [
+              2025,
+              6,
+              20
+            ],
+            "peso": 3.0,
+            "nota": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Maria",
+    "email": "maria@gmail.com",
+    "senha": "123",
+    "disciplinasAluno": [
+      {
+        "nomeDisciplina": "Cálculo",
+        "numeroLimiteFaltas": 11,
+        "faltasAtuais": 1,
+        "avaliacoes": []
+      },
+      {
+        "nomeDisciplina": "Física",
+        "numeroLimiteFaltas": 5,
+        "faltasAtuais": 1,
+        "avaliacoes": []
+      }
+    ]
+  }
+]

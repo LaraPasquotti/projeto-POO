@@ -11,7 +11,7 @@
    <children>
       <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="37.0" prefHeight="468.0" prefWidth="316.0" spacing="20.0">
          <children>
-            <ListView fx:id="listaDisciplinas" prefHeight="495.0" prefWidth="316.0" />
+            <ListView fx:id="listaDisciplinas" prefHeight="495.0" prefWidth="316.0" style="-fx-background-color: #f4f4f4; -fx-border-radius: 8px; -fx-padding: 5px;" />
             <VBox alignment="CENTER" prefHeight="162.0" prefWidth="316.0" spacing="5.0">
                <children>
                   <TextField fx:id="campoNomeNovaDisciplina" promptText="Nome disciplina" />

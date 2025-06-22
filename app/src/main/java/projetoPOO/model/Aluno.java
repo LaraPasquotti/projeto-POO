@@ -1,6 +1,7 @@
 package projetoPOO.model;
 import java.util.ArrayList;
 import java.util.List;
+import projetoPOO.exceptions.DisciplinaJaExisteException;
 
 
 /**
@@ -39,9 +40,10 @@ public class Aluno {
      *
      * @param disciplina disciplina a ser adicionada na lista de disciplinas do aluno;
      */
-    public void adicionarDisciplina(Disciplina disciplina){
+    public void adicionarDisciplina(Disciplina disciplina) throws DisciplinaJaExisteException {
         if(buscarDisciplina(disciplina.getNomeDisciplina()) != null){
-            return;
+            throw new DisciplinaJaExisteException("A disciplina já existe.");
+            
         }
         this.disciplinasAluno.add(disciplina);
     }
@@ -131,7 +133,7 @@ public class Aluno {
      * Retorna a senha do aluno
      * @return senha Aluno
      */
-    protected String getSenha(){
+    public String getSenha(){
         return this.senha;
     }
 

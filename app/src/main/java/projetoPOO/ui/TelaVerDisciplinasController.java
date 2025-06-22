@@ -5,10 +5,17 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import projetoPOO.dados.DadosAlunos;
+import projetoPOO.exceptions.DisciplinaJaExisteException;
+import projetoPOO.exceptions.SenhaIncorretaException;
+import projetoPOO.exceptions.UsuarioNaoEncontradoException;
 import projetoPOO.model.Disciplina;
 
 /**
@@ -42,9 +49,15 @@ public class TelaVerDisciplinasController {
     @FXML
     private TextField campoNumeroFaltasAtuais;
 
+    /**
+     * Lista de disciplinas do aluno
+     */
     @FXML 
     private ListView<Disciplina> listaDisciplinas;
 
+    /**
+     * ObservableList das disciplinas do aluno
+     */
     private ObservableList<Disciplina> obsDisciplinas;
 
     /**
@@ -65,11 +78,31 @@ public class TelaVerDisciplinasController {
             campoNumeroFaltasAtuais.setText(oldValue);
         }
         });
-        System.out.println("Tela carregada com sucesso!");
+
+        listaDisciplinas.setCellFactory(d -> new javafx.scene.control.ListCell<>() {
+            @Override
+            protected void updateItem(Disciplina disciplina, boolean empty) {
+                super.updateItem(disciplina, empty);
+                if (empty || disciplina == null) {
+                    setGraphic(null);
+                } else {
+                    Label nomeLabel = new Label(disciplina.getNomeDisciplina());
+                    nomeLabel.setStyle("-fx-font-weight: bold;");
+
+                    Label faltasLabel = new Label(disciplina.getFaltasAtuais() + "/" + disciplina.getNumeroLimiteFaltas() + " faltas");
+                    faltasLabel.setStyle("-fx-text-fill: #666;");
+
+                    HBox box = new HBox(10, nomeLabel, faltasLabel);
+                    HBox.setHgrow(nomeLabel, Priority.ALWAYS);
+                    setGraphic(box);
+                }
+            }
+        });
     }
 
     /**
      * Método de adicionar disciplinas
+     * Caso a disciplina já exista, mostra a exceção de DisciplinaJaExiste
      */
     @FXML
     private void adicionarDisciplina() {
@@ -77,12 +110,21 @@ public class TelaVerDisciplinasController {
         int numeroLimiteFaltas = Integer.parseInt(campoNumeroLimiteFaltas.getText());
         int numeroFaltasAtuais = Integer.parseInt(campoNumeroFaltasAtuais.getText());
         Disciplina novaDisciplina = new Disciplina(nomeDisciplina, numeroLimiteFaltas, numeroFaltasAtuais);
-        TelaLoginController.alunoLogado.adicionarDisciplina(novaDisciplina);
-        DadosAlunos.getInstancia().salvar();
+        
+        
+        try{TelaLoginController.alunoLogado.adicionarDisciplina(novaDisciplina);
+        } catch(DisciplinaJaExisteException e){
+            TelaLoginController.exibirAlertaDeErro(e.getMessage());
+        }
+        
         this.obsDisciplinas.add(novaDisciplina);
+        DadosAlunos.getInstancia().salvar();
         System.out.println(novaDisciplina.getNomeDisciplina() + " " + novaDisciplina.getNumeroLimiteFaltas() + " " + novaDisciplina.getFaltasAtuais());
     }
 
+    /**
+    * Exibe as disciplinas do aluno no listView
+    */
     public void mostrarDisciplinasAluno() {
         List<Disciplina> disciplinas = TelaLoginController.alunoLogado.getDisciplinasAluno();
         this.obsDisciplinas = FXCollections.observableArrayList(disciplinas);

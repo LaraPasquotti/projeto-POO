@@ -15,10 +15,8 @@ import projetoPOO.model.Aluno;
  */
 public class DadosAlunos extends Dados<Aluno>{
     private static DadosAlunos instancia;
-    private File arquivoAlunos = new File("src/main/resources/alunos.json");
+    private File arquivoAlunos = new File("src/main/data/alunos.json").getAbsoluteFile();
 
-
-    
     /**
      * Construtor privado para garantir o padrão Singleton.
      * Inicializa a lista de alunos carregando os dados do JSON.
@@ -54,7 +52,6 @@ public class DadosAlunos extends Dados<Aluno>{
         }
     }
 
-    
     /**
      * Carrega a lista de alunos a partir do arquivo JSON.
      * 
@@ -63,9 +60,8 @@ public class DadosAlunos extends Dados<Aluno>{
     @Override
     public List<Aluno> carregarDoJson(){
         try {
-            var inputStream = getClass().getClassLoader().getResourceAsStream("alunos.json");
-            if (inputStream == null) return new ArrayList<>();
-            return new ArrayList<>(Arrays.asList(mapper.readValue(inputStream, Aluno[].class)));
+            if (!arquivoAlunos.exists()) return new ArrayList<>();
+            return new ArrayList<>(Arrays.asList(mapper.readValue(arquivoAlunos, Aluno[].class)));
         } catch (IOException e) {
             e.printStackTrace();
             return new ArrayList<>();
