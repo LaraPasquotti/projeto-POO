@@ -3,8 +3,10 @@ package projetoPOO.ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 
 
 public class MainApp extends Application {
@@ -30,7 +32,6 @@ public class MainApp extends Application {
         loginStage.setScene(scene);
         loginStage.show();
     }
-
 
 
     public static void main(String[] args) {

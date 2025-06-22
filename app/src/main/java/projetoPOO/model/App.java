@@ -19,8 +19,10 @@ public class App {
 
     public static void main(String[] args) throws IOException {
 
-        //Aluno novoAluno = new Aluno("Joao", "joao@gmail.com", "123");
-        //DadosAlunos.getInstancia().adicionar(novoAluno);
+        Aluno novoAluno = new Aluno("Joao", "joao@gmail.com", "123");
+        DadosAlunos.getInstancia().adicionar(novoAluno);
+        DadosAlunos.getInstancia().salvar();
+        
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite o email: ");
