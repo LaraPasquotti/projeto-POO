@@ -1,15 +1,15 @@
 package projetoPOO.ui;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import projetoPOO.model.Disciplina;
-
 import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import projetoPOO.dados.DadosAlunos;
+import projetoPOO.model.Disciplina;
 
 /**
  * Contém a estrutura de implementação de um controller para a tela de disciplinas
@@ -77,6 +77,9 @@ public class TelaVerDisciplinasController {
         int numeroLimiteFaltas = Integer.parseInt(campoNumeroLimiteFaltas.getText());
         int numeroFaltasAtuais = Integer.parseInt(campoNumeroFaltasAtuais.getText());
         Disciplina novaDisciplina = new Disciplina(nomeDisciplina, numeroLimiteFaltas, numeroFaltasAtuais);
+        TelaLoginController.alunoLogado.adicionarDisciplina(novaDisciplina);
+        DadosAlunos.getInstancia().salvar();
+        this.obsDisciplinas.add(novaDisciplina);
         System.out.println(novaDisciplina.getNomeDisciplina() + " " + novaDisciplina.getNumeroLimiteFaltas() + " " + novaDisciplina.getFaltasAtuais());
     }
 

@@ -15,7 +15,7 @@ import projetoPOO.model.Aluno;
  */
 public class DadosAlunos extends Dados<Aluno>{
     private static DadosAlunos instancia;
-    private File arquivoAlunos = new File("app/src/main/resources/alunos.json");
+    private File arquivoAlunos = new File("src/main/resources/alunos.json");
 
 
     
