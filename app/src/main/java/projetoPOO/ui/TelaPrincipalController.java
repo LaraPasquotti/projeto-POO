@@ -52,7 +52,6 @@ public class TelaPrincipalController {
         
     }
 
-  
     public void setAlunoLogado(Aluno aluno) {
         this.alunoLogado = aluno;
         carregarAvaliacoesDoAluno();
@@ -71,10 +70,7 @@ public class TelaPrincipalController {
             }
         }
         
- 
         Collections.sort(listaDeAvaliacoes);
-
- 
         tabelaAvaliacoes.setItems(listaDeAvaliacoes);
     }
     

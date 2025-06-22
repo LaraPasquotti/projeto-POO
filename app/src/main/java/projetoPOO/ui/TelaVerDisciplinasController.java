@@ -1,10 +1,15 @@
 package projetoPOO.ui;
 
+import java.io.IOException;
 import java.util.List;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,6 +17,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.stage.Stage;
 import projetoPOO.dados.DadosAlunos;
 import projetoPOO.exceptions.DisciplinaJaExisteException;
 import projetoPOO.exceptions.SenhaIncorretaException;
@@ -30,6 +36,9 @@ public class TelaVerDisciplinasController {
      */
     @FXML
     private Button btnAdicionarDisciplina;
+
+    @FXML
+    private Button btnVoltar;
 
     /**
      * Campo de texto para o nome da nova disciplina
@@ -130,6 +139,26 @@ public class TelaVerDisciplinasController {
         this.obsDisciplinas = FXCollections.observableArrayList(disciplinas);
         listaDisciplinas.setItems(obsDisciplinas);
     }
+
+    @FXML
+    private void voltarParaTelaPrincipal(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TelaPrincipal.fxml"));
+            Parent root = loader.load();
+
+           
+            TelaPrincipalController principalController = loader.getController();
+            principalController.setAlunoLogado(TelaLoginController.alunoLogado);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root, 335, 600));
+            stage.setTitle("Minhas Avaliações");
+            stage.show();
+
+        } catch (IOException e) {
+
+        }
+    }
+
 
 }
 

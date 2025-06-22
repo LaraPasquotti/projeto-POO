@@ -69,7 +69,7 @@ public class TelaLoginController {
                 
                 
                 stage.setScene(new Scene(root, 335, 600)); 
-                stage.setTitle("Minhas Avaliações"); 
+                stage.setTitle("Tela Principal"); 
                 stage.show();
 
             } catch (IOException e) {
