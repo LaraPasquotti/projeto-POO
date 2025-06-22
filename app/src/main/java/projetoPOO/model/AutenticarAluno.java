@@ -3,6 +3,7 @@ package projetoPOO.model;
 import projetoPOO.dados.DadosAlunos;
 import projetoPOO.exceptions.SenhaIncorretaException;
 import projetoPOO.exceptions.UsuarioNaoEncontradoException;
+import projetoPOO.ui.*;
 
 /**
  * Contém a estrutura de implementação da classe AutenticarAluno
@@ -21,7 +22,7 @@ public class AutenticarAluno {
                 return aluno;
             }
         }
-        throw new UsuarioNaoEncontradoException("Usuário não encontrado");
+        throw new UsuarioNaoEncontradoException("Usuário não encontrado.");
     }
 
     /**
@@ -31,7 +32,7 @@ public class AutenticarAluno {
      */    
     private static void verificarSenha(String senha, Aluno aluno) throws SenhaIncorretaException{
         if(!aluno.getSenha().equals(senha)){
-            throw new SenhaIncorretaException("Senha incorreta");
+            throw new SenhaIncorretaException("Senha incorreta.");
         }
 
     }
@@ -48,7 +49,7 @@ public class AutenticarAluno {
             return aluno;
 
         } catch(UsuarioNaoEncontradoException | SenhaIncorretaException e){
-            System.out.println(e.getMessage());
+            TelaLoginController.exibirAlertaDeErro(e.getMessage());
         }
         return null;
     }

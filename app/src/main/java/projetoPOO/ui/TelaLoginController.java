@@ -63,15 +63,13 @@ public class TelaLoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }        
-        } else{
-            exibirAlertaDeErro("A senha ou o email estão incorretos.");
-        }
+        } 
     }
 
     /**
      * Método de exibir um alerta de erro caso a senha e/ou o email estejam errados
      */
-    private void exibirAlertaDeErro(String mensagem){
+    public static void exibirAlertaDeErro(String mensagem){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erro de Login");
         alert.setHeaderText(null); 

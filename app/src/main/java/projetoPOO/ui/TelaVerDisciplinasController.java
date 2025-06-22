@@ -96,6 +96,7 @@ public class TelaVerDisciplinasController {
 
     /**
      * Método de adicionar disciplinas
+     * Caso a disciplina já exista, mostra o erro
      */
     @FXML
     private void adicionarDisciplina() {
@@ -107,7 +108,7 @@ public class TelaVerDisciplinasController {
         
         try{TelaLoginController.alunoLogado.adicionarDisciplina(novaDisciplina);
         } catch(DisciplinaJaExisteException e){
-            exibirAlertaDeErro(e.getMessage());
+            TelaLoginController.exibirAlertaDeErro(e.getMessage());
         }
         
         this.obsDisciplinas.add(novaDisciplina);
@@ -121,12 +122,5 @@ public class TelaVerDisciplinasController {
         listaDisciplinas.setItems(obsDisciplinas);
     }
 
-    private void exibirAlertaDeErro(String mensagem){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        //alert.setTitle("Erro de Login");
-        alert.setHeaderText(null); 
-        alert.setContentText(mensagem);
-        alert.showAndWait();
-    }
 }
 
