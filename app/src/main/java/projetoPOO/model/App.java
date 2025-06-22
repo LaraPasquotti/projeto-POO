@@ -42,7 +42,7 @@ public class App {
         Disciplina disciplinaAddAvaliacao = alunoLogado.buscarDisciplina(novaAvaliacao.getDisciplina().getNomeDisciplina());
         disciplinaAddAvaliacao.adicionarAvaliacao(novaAvaliacao);*/
 
-        alunoLogado.adicionarDisciplina(disciplinaPoo);
-        DadosAlunos.getInstancia().salvar();
+        //alunoLogado.adicionarDisciplina(disciplinaPoo);
+        //DadosAlunos.getInstancia().salvar();
     }
 }

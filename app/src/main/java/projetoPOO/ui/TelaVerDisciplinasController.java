@@ -5,6 +5,7 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -12,6 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import projetoPOO.dados.DadosAlunos;
+import projetoPOO.exceptions.DisciplinaJaExisteException;
+import projetoPOO.exceptions.SenhaIncorretaException;
+import projetoPOO.exceptions.UsuarioNaoEncontradoException;
 import projetoPOO.model.Disciplina;
 
 /**
@@ -99,7 +103,13 @@ public class TelaVerDisciplinasController {
         int numeroLimiteFaltas = Integer.parseInt(campoNumeroLimiteFaltas.getText());
         int numeroFaltasAtuais = Integer.parseInt(campoNumeroFaltasAtuais.getText());
         Disciplina novaDisciplina = new Disciplina(nomeDisciplina, numeroLimiteFaltas, numeroFaltasAtuais);
-        TelaLoginController.alunoLogado.adicionarDisciplina(novaDisciplina);
+        
+        
+        try{TelaLoginController.alunoLogado.adicionarDisciplina(novaDisciplina);
+        } catch(DisciplinaJaExisteException e){
+            exibirAlertaDeErro(e.getMessage());
+        }
+        
         this.obsDisciplinas.add(novaDisciplina);
         DadosAlunos.getInstancia().salvar();
         System.out.println(novaDisciplina.getNomeDisciplina() + " " + novaDisciplina.getNumeroLimiteFaltas() + " " + novaDisciplina.getFaltasAtuais());
@@ -111,5 +121,12 @@ public class TelaVerDisciplinasController {
         listaDisciplinas.setItems(obsDisciplinas);
     }
 
+    private void exibirAlertaDeErro(String mensagem){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        //alert.setTitle("Erro de Login");
+        alert.setHeaderText(null); 
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
 }
 
