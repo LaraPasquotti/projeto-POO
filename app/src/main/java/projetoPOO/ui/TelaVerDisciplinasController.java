@@ -5,6 +5,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import projetoPOO.model.Disciplina;
 
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
+
 /**
  * Contém a estrutura de implementação de um controller para a tela de disciplinas
  * 
@@ -36,11 +42,17 @@ public class TelaVerDisciplinasController {
     @FXML
     private TextField campoNumeroFaltasAtuais;
 
+    @FXML 
+    private ListView<Disciplina> listaDisciplinas;
+
+    private ObservableList<Disciplina> obsDisciplinas;
+
     /**
      * Método inicializador do controller
      */
     @FXML
     public void initialize() {
+        mostrarDisciplinasAluno();
 
         campoNumeroLimiteFaltas.textProperty().addListener((obs, oldValue, newValue) -> {
         if (!newValue.matches("\\d*")) {
@@ -66,7 +78,13 @@ public class TelaVerDisciplinasController {
         int numeroFaltasAtuais = Integer.parseInt(campoNumeroFaltasAtuais.getText());
         Disciplina novaDisciplina = new Disciplina(nomeDisciplina, numeroLimiteFaltas, numeroFaltasAtuais);
         System.out.println(novaDisciplina.getNomeDisciplina() + " " + novaDisciplina.getNumeroLimiteFaltas() + " " + novaDisciplina.getFaltasAtuais());
-
     }
+
+    public void mostrarDisciplinasAluno() {
+        List<Disciplina> disciplinas = TelaLoginController.alunoLogado.getDisciplinasAluno();
+        this.obsDisciplinas = FXCollections.observableArrayList(disciplinas);
+        listaDisciplinas.setItems(obsDisciplinas);
+    }
+
 }
 

@@ -13,7 +13,7 @@ import projetoPOO.model.AutenticarAluno;
  * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
  */
 public class TelaLoginController {
-    private Aluno alunoLogado;
+    protected static Aluno alunoLogado;
     
     @FXML
     /**
@@ -38,12 +38,14 @@ public class TelaLoginController {
      * Método de logar
      */
     private void loginAluno(){
-        String emailDigitado = campoEmail.getText();
-        String senhaDigitada = campoSenha.getText();
+        String emailDigitado = campoEmail.getText().trim();
+        System.out.println(emailDigitado);
+        String senhaDigitada = campoSenha.getText().trim();
 
         Aluno logarAluno = AutenticarAluno.login(emailDigitado, senhaDigitada);
 
         if (logarAluno != null){
+            this.alunoLogado = logarAluno;
             System.out.println("O login funcionou");            
         } else{
             exibirAlertaDeErro("A senha ou o email estão incorretos.");
@@ -60,13 +62,4 @@ public class TelaLoginController {
         alert.setContentText(mensagem);
         alert.showAndWait();
     }
-
-    /**
-     * Retorna o aluno que está logado
-     * @return aluno logado
-     */
-    public Aluno getAlunoLogado(){
-        return this.alunoLogado;
-    }
-
 }

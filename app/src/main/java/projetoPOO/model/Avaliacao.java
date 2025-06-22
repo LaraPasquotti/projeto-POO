@@ -121,14 +121,6 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
     }
 
     /**
-     * Altera o nome da avaliacao
-     * @param nomeAvaliacao o novo nome da avaliacao
-     */
-    public void setNomeAvaliacao(String nomeAvaliacao) {
-        this.nomeAvaliacao = nomeAvaliacao;
-    }
-
-    /**
      * Retorna a nota
      * @return a nota da avalicao
      */

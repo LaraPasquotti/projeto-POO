@@ -19,4 +19,7 @@ public class Trabalho extends Avaliacao {
         super(nomeAvaliacao, dataEntrega, disciplina, peso);
     }
 
+    public Trabalho(){
+    }
+
 }

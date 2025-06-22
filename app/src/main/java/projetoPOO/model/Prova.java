@@ -19,4 +19,8 @@ public class Prova extends Avaliacao {
         super(nomeAvaliacao, dataEntrega, disciplina, peso);
     }
 
+    public Prova(){
+        
+    }
+
 }
