@@ -56,7 +56,7 @@ public class TelaLoginController {
             System.out.println("O login funcionou");    
             
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TelaVerDisciplinas.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TelaPrincipal.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
