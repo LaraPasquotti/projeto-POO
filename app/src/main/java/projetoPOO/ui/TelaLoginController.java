@@ -1,9 +1,17 @@
 package projetoPOO.ui;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import projetoPOO.model.Aluno;
 import projetoPOO.model.AutenticarAluno;
 
@@ -37,16 +45,25 @@ public class TelaLoginController {
     /**
      * Método de logar
      */
-    private void loginAluno(){
+    private void loginAluno(ActionEvent event){
         String emailDigitado = campoEmail.getText().trim();
-        System.out.println(emailDigitado);
         String senhaDigitada = campoSenha.getText().trim();
 
         Aluno logarAluno = AutenticarAluno.login(emailDigitado, senhaDigitada);
 
         if (logarAluno != null){
             this.alunoLogado = logarAluno;
-            System.out.println("O login funcionou");            
+            System.out.println("O login funcionou");    
+            
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TelaVerDisciplinas.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }        
         } else{
             exibirAlertaDeErro("A senha ou o email estão incorretos.");
         }

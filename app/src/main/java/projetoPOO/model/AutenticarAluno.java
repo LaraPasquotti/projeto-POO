@@ -17,7 +17,7 @@ public class AutenticarAluno {
      */
     private static Aluno buscarEmail(String email) throws UsuarioNaoEncontradoException {
         for(Aluno aluno : DadosAlunos.getInstancia().getLista()){
-            if(aluno.getEmail().equals(email)){
+            if(aluno.getEmail().equalsIgnoreCase(email)){
                 return aluno;
             }
         }
@@ -30,12 +30,10 @@ public class AutenticarAluno {
      * @param aluno aluno que quer ser logado
      */    
     private static void verificarSenha(String senha, Aluno aluno) throws SenhaIncorretaException{
-        if(aluno.getSenha().equals(senha)){
-
-        }
-        else{
+        if(!aluno.getSenha().equals(senha)){
             throw new SenhaIncorretaException("Senha incorreta");
         }
+
     }
 
     /**
