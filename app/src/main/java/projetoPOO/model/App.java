@@ -15,6 +15,15 @@ import java.util.Scanner;
  */
 public class App {
 
+    public static void teste(String email, String senha){
+        System.out.println("Entrou na função");
+        Aluno alunoLogado = AutenticarAluno.login(email, senha);
+        if(alunoLogado != null){
+            System.out.println("Logou " + alunoLogado.getNome());
+        }
+        return;
+    }
+
     public static void main(String[] args) throws IOException {
 
         //Aluno novoAluno = new Aluno("Joao", "joao@gmail.com", "123");

@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import projetoPOO.model.Aluno;
 import projetoPOO.model.AutenticarAluno;
+import projetoPOO.model.App;
 
 /**
  * Contém a estrutura de implementação de um controller para a tela de login
@@ -49,6 +50,7 @@ public class TelaLoginController {
         String emailDigitado = campoEmail.getText().trim();
         String senhaDigitada = campoSenha.getText().trim();
 
+        App.teste(emailDigitado, senhaDigitada);
         Aluno logarAluno = AutenticarAluno.login(emailDigitado, senhaDigitada);
 
         if (logarAluno != null){
