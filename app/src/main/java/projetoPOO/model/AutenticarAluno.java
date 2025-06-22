@@ -15,7 +15,7 @@ public class AutenticarAluno {
      * busca um aluno no Json pelo email
      * @param email email do aluno a ser buscado
      */
-    public static Aluno buscarEmail(String email) throws UsuarioNaoEncontradoException {
+    private static Aluno buscarEmail(String email) throws UsuarioNaoEncontradoException {
         for(Aluno aluno : DadosAlunos.getInstancia().getLista()){
             if(aluno.getEmail().equalsIgnoreCase(email)){
                 return aluno;
@@ -29,7 +29,7 @@ public class AutenticarAluno {
      * @param senha senha digitada
      * @param aluno aluno que quer ser logado
      */    
-    public static void verificarSenha(String senha, Aluno aluno) throws SenhaIncorretaException{
+    private static void verificarSenha(String senha, Aluno aluno) throws SenhaIncorretaException{
         String senhaCadastrada = aluno.getSenha();
 
         if(senhaCadastrada == null || !senhaCadastrada.equals(senha)){
