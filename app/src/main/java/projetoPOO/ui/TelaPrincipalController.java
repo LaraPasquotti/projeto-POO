@@ -26,15 +26,27 @@ import projetoPOO.model.Disciplina;
 
 public class TelaPrincipalController {
 
+    /**
+     * Botão para ver as disciplinas
+     */
     @FXML
     private Button botaoVerDisciplinas;
 
+    /**
+     * TableView para as avaliações
+     */
     @FXML
     private TableView<Avaliacao> tabelaAvaliacoes;
 
+    /**
+     * TableColumn para as avaliaçõces
+     */
     @FXML
     private TableColumn<Avaliacao, String> colunaAvaliacoes;
 
+    /**
+     * Campo de pesquisa para filtrar uma avaliação
+     */
     @FXML
     private TextField campoPesquisa;
 
@@ -43,6 +55,9 @@ public class TelaPrincipalController {
     private Aluno alunoLogado;
 
    
+    /**
+     * Método inizilizador do controller
+     */
     @FXML
     private void initialize() {
        
@@ -52,11 +67,18 @@ public class TelaPrincipalController {
         
     }
 
+    /**
+     * Método de setar o aluno que está logado, assim como suas avaliações
+     * @param aluno
+     */
     public void setAlunoLogado(Aluno aluno) {
         this.alunoLogado = aluno;
         carregarAvaliacoesDoAluno();
     }
 
+    /**
+     * Método para carregar as avaliações do aluno
+     */
     private void carregarAvaliacoesDoAluno() {
         if (alunoLogado == null) {
             return;
@@ -74,6 +96,10 @@ public class TelaPrincipalController {
         tabelaAvaliacoes.setItems(listaDeAvaliacoes);
     }
     
+    /**
+     * Método para ver as disciplinas
+     * @param event evento de ver as disciplinas 
+     */
     @FXML
     private void verDisciplinas(ActionEvent event) {
         try {

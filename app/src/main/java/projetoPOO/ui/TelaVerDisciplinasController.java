@@ -140,6 +140,10 @@ public class TelaVerDisciplinasController {
         listaDisciplinas.setItems(obsDisciplinas);
     }
 
+    /**
+     * Método de voltar para a tela principal
+     * @param event evento de voltar a tela principal
+     */
     @FXML
     private void voltarParaTelaPrincipal(ActionEvent event) {
         try {
