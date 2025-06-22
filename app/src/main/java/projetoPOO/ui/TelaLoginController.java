@@ -13,7 +13,7 @@ import projetoPOO.model.AutenticarAluno;
  * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
  */
 public class TelaLoginController {
-
+    private Aluno alunoLogado;
     
     @FXML
     /**
@@ -59,6 +59,14 @@ public class TelaLoginController {
         alert.setHeaderText(null); 
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    /**
+     * Retorna o aluno que está logado
+     * @return aluno logado
+     */
+    public Aluno getAlunoLogado(){
+        return this.alunoLogado;
     }
 
 }
