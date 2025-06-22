@@ -4,6 +4,7 @@
 package projetoPOO.model;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * Contém a estrutura de implementação da aplicação.
@@ -15,7 +16,7 @@ import java.io.IOException;
 public class App {
 
     public static void main(String[] args) throws IOException {
-/*
+
         //Aluno novoAluno = new Aluno("Joao", "joao@gmail.com", "123");
         //DadosAlunos.getInstancia().adicionar(novoAluno);
         Scanner scanner = new Scanner(System.in);
@@ -31,7 +32,7 @@ public class App {
             System.out.println(alunoLogado.getNome());
         }
         
-        Disciplina disciplinaPoo = new Disciplina("POO", 10, 2);
+        /*Disciplina disciplinaPoo = new Disciplina("POO", 10, 2);
 
         LocalDate hoje = LocalDate.now();
         Seminario novaAvaliacao = new Seminario("seminario POO", hoje, disciplinaPoo, 3);

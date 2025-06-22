@@ -1,8 +1,14 @@
 package projetoPOO.ui;
 
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import projetoPOO.dados.DadosAlunos;
 import projetoPOO.model.Disciplina;
 
 /**
@@ -36,11 +42,17 @@ public class TelaVerDisciplinasController {
     @FXML
     private TextField campoNumeroFaltasAtuais;
 
+    @FXML 
+    private ListView<Disciplina> listaDisciplinas;
+
+    private ObservableList<Disciplina> obsDisciplinas;
+
     /**
      * Método inicializador do controller
      */
     @FXML
     public void initialize() {
+        mostrarDisciplinasAluno();
 
         campoNumeroLimiteFaltas.textProperty().addListener((obs, oldValue, newValue) -> {
         if (!newValue.matches("\\d*")) {
@@ -65,8 +77,17 @@ public class TelaVerDisciplinasController {
         int numeroLimiteFaltas = Integer.parseInt(campoNumeroLimiteFaltas.getText());
         int numeroFaltasAtuais = Integer.parseInt(campoNumeroFaltasAtuais.getText());
         Disciplina novaDisciplina = new Disciplina(nomeDisciplina, numeroLimiteFaltas, numeroFaltasAtuais);
+        TelaLoginController.alunoLogado.adicionarDisciplina(novaDisciplina);
+        DadosAlunos.getInstancia().salvar();
+        this.obsDisciplinas.add(novaDisciplina);
         System.out.println(novaDisciplina.getNomeDisciplina() + " " + novaDisciplina.getNumeroLimiteFaltas() + " " + novaDisciplina.getFaltasAtuais());
-
     }
+
+    public void mostrarDisciplinasAluno() {
+        List<Disciplina> disciplinas = TelaLoginController.alunoLogado.getDisciplinasAluno();
+        this.obsDisciplinas = FXCollections.observableArrayList(disciplinas);
+        listaDisciplinas.setItems(obsDisciplinas);
+    }
+
 }
 

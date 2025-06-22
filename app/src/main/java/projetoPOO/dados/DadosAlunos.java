@@ -15,7 +15,7 @@ import projetoPOO.model.Aluno;
  */
 public class DadosAlunos extends Dados<Aluno>{
     private static DadosAlunos instancia;
-    private File arquivoAlunos = new File("app/src/main/java/projetoPOO/dados/alunos.json");
+    private File arquivoAlunos = new File("src/main/resources/alunos.json");
 
 
     
@@ -63,13 +63,13 @@ public class DadosAlunos extends Dados<Aluno>{
     @Override
     public List<Aluno> carregarDoJson(){
         try {
-            if (!arquivoAlunos.exists()) return new ArrayList<>();
-            return new ArrayList<>(Arrays.asList(mapper.readValue(arquivoAlunos, Aluno[].class)));
+            var inputStream = getClass().getClassLoader().getResourceAsStream("alunos.json");
+            if (inputStream == null) return new ArrayList<>();
+            return new ArrayList<>(Arrays.asList(mapper.readValue(inputStream, Aluno[].class)));
         } catch (IOException e) {
             e.printStackTrace();
             return new ArrayList<>();
         }
     }
-
 }
 

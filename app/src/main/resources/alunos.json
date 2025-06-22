@@ -32,5 +32,11 @@
         ]
       }
     ]
+  },
+  {
+    "nome": "Maria",
+    "email": "maria",
+    "senha": "123",
+    "disciplinasAluno": []
   }
 ]
