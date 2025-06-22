@@ -121,14 +121,6 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
     }
 
     /**
-     * Retorna o nome da avaliacao
-     * @return o nome da avaliacao
-     */
-    public String getNomeAvaliacao() {
-        return nomeAvaliacao;
-    }
-
-    /**
      * Altera o nome da avaliacao
      * @param nomeAvaliacao o novo nome da avaliacao
      */
