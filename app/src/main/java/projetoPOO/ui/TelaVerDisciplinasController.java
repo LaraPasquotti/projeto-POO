@@ -49,9 +49,15 @@ public class TelaVerDisciplinasController {
     @FXML
     private TextField campoNumeroFaltasAtuais;
 
+    /**
+     * Lista de disciplinas do aluno
+     */
     @FXML 
     private ListView<Disciplina> listaDisciplinas;
 
+    /**
+     * ObservableList das disciplinas do aluno
+     */
     private ObservableList<Disciplina> obsDisciplinas;
 
     /**
@@ -96,7 +102,7 @@ public class TelaVerDisciplinasController {
 
     /**
      * Método de adicionar disciplinas
-     * Caso a disciplina já exista, mostra o erro
+     * Caso a disciplina já exista, mostra a exceção de DisciplinaJaExiste
      */
     @FXML
     private void adicionarDisciplina() {
@@ -116,6 +122,9 @@ public class TelaVerDisciplinasController {
         System.out.println(novaDisciplina.getNomeDisciplina() + " " + novaDisciplina.getNumeroLimiteFaltas() + " " + novaDisciplina.getFaltasAtuais());
     }
 
+    /**
+    * Exibe as disciplinas do aluno no listView
+    */
     public void mostrarDisciplinasAluno() {
         List<Disciplina> disciplinas = TelaLoginController.alunoLogado.getDisciplinasAluno();
         this.obsDisciplinas = FXCollections.observableArrayList(disciplinas);
