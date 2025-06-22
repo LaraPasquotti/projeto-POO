@@ -17,8 +17,6 @@ public class DadosAlunos extends Dados<Aluno>{
     private static DadosAlunos instancia;
     private File arquivoAlunos = new File("src/main/data/alunos.json").getAbsoluteFile();
 
-
-    
     /**
      * Construtor privado para garantir o padrão Singleton.
      * Inicializa a lista de alunos carregando os dados do JSON.
@@ -54,7 +52,6 @@ public class DadosAlunos extends Dados<Aluno>{
         }
     }
 
-    
     /**
      * Carrega a lista de alunos a partir do arquivo JSON.
      * 
@@ -65,9 +62,6 @@ public class DadosAlunos extends Dados<Aluno>{
         try {
             if (!arquivoAlunos.exists()) return new ArrayList<>();
             return new ArrayList<>(Arrays.asList(mapper.readValue(arquivoAlunos, Aluno[].class)));
-            /*var inputStream = getClass().getClassLoader().getResourceAsStream("alunos.json");
-            if (inputStream == null) return new ArrayList<>();
-            return new ArrayList<>(Arrays.asList(mapper.readValue(inputStream, Aluno[].class)));*/
         } catch (IOException e) {
             e.printStackTrace();
             return new ArrayList<>();
