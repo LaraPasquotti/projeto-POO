@@ -1,9 +1,12 @@
 package projetoPOO.ui;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -74,28 +77,55 @@ public class TelaPrincipalController {
     public void setAlunoLogado(Aluno aluno) {
         this.alunoLogado = aluno;
         carregarAvaliacoesDoAluno();
+        configurarPesquisa();
     }
 
     /**
      * Método para carregar as avaliações do aluno
      */
     private void carregarAvaliacoesDoAluno() {
+        listaDeAvaliacoes.clear();
+
         if (alunoLogado == null) {
             return;
         }
 
         for (Disciplina disciplina : alunoLogado.getDisciplinasAluno()) {
-            
-            for (Avaliacao avaliacao : disciplina.getAvaliacoes()) {
-                avaliacao.setDisciplina(disciplina);
+            disciplina.getAvaliacoes().forEach(avaliacao -> {
                 listaDeAvaliacoes.add(avaliacao);
-            }
+            });
         }
         
         Collections.sort(listaDeAvaliacoes);
-        tabelaAvaliacoes.setItems(listaDeAvaliacoes);
     }
-    
+
+    private void configurarPesquisa() {
+        FilteredList<Avaliacao> filtered = new FilteredList<>(listaDeAvaliacoes, p -> true);
+
+        campoPesquisa.textProperty().addListener((obs, oldVal, newVal) -> {
+            String filtro = newVal == null ? "" : newVal.trim().toLowerCase();
+            DateTimeFormatter formato = DateTimeFormatter.ISO_LOCAL_DATE;
+
+            filtered.setPredicate(avaliacao -> {
+                if (filtro.isEmpty()) return true;
+
+                if (avaliacao.getnomeAvaliacao().toLowerCase().contains(filtro)) {
+                    return true;
+                }
+
+                String dataStr = avaliacao.getDataEntrega().format(formato);
+                if (dataStr.contains(filtro)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+
+        SortedList<Avaliacao> sorted = new SortedList<>(filtered);
+        sorted.comparatorProperty().bind(tabelaAvaliacoes.comparatorProperty());
+        tabelaAvaliacoes.setItems(sorted);
+    }
+
     /**
      * Método para ver as disciplinas
      * @param event evento de ver as disciplinas 
