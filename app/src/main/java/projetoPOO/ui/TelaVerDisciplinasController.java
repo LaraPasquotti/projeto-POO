@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
@@ -160,6 +161,34 @@ public class TelaVerDisciplinasController {
 
         } catch (IOException e) {
 
+        }
+    }
+
+    @FXML
+    private void onDisciplinaClicked(MouseEvent event) {
+
+        if (event.getClickCount() != 2) {
+            return;
+        }
+
+        Disciplina disciplinaSelecionada = listaDisciplinas.getSelectionModel().getSelectedItem();
+        if (disciplinaSelecionada == null) {
+            return;
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/telaDisciplina.fxml"));
+            Parent root = loader.load();
+
+            TelaDisciplinaController controller = loader.getController();
+            controller.setDisciplina(disciplinaSelecionada);
+
+            Stage stage = (Stage) listaDisciplinas.getScene().getWindow();
+            stage.setScene(new Scene(root, 335, 600));
+            stage.setTitle("Disciplina: " + disciplinaSelecionada.getNomeDisciplina());
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
