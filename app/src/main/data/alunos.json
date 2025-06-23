@@ -35,6 +35,12 @@
       "dataEntrega" : [ 2025, 6, 3 ],
       "peso" : 2.0,
       "nota" : 0.0
+    }, {
+      "tipo" : "atividade",
+      "nomeAvaliacao" : "Teste",
+      "dataEntrega" : [ 2025, 7, 1 ],
+      "peso" : 1.0,
+      "nota" : 0.0
     } ]
   } ]
 }, {

@@ -1,8 +1,16 @@
 package projetoPOO.ui;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -20,6 +28,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import projetoPOO.filter.AvaliacaoPorDataFilter;
+import projetoPOO.filter.AvaliacaoPorNomeFilter;
 import projetoPOO.model.Aluno;
 import projetoPOO.model.Avaliacao;
 import projetoPOO.model.AvisosAvaliacao;
@@ -113,26 +123,36 @@ public class TelaPrincipalController {
         Collections.sort(listaDeAvaliacoes);
     }
 
+    /**
+     * Método para configurar a busca de avaliações na barra de pesquisa 
+     */
     private void configurarPesquisa() {
         FilteredList<Avaliacao> filtered = new FilteredList<>(listaDeAvaliacoes, p -> true);
 
         campoPesquisa.textProperty().addListener((obs, oldVal, newVal) -> {
-            String filtro = newVal == null ? "" : newVal.trim().toLowerCase();
-            DateTimeFormatter formato = DateTimeFormatter.ISO_LOCAL_DATE;
+            String filtro = newVal == null ? "" : newVal.trim();
+            
+            if (filtro.isEmpty()) {
+                filtered.setPredicate(av -> true);
+                return;
+            }
 
-            filtered.setPredicate(avaliacao -> {
-                if (filtro.isEmpty()) return true;
+            List<Avaliacao> resultados = new ArrayList<>();
 
-                if (avaliacao.getnomeAvaliacao().toLowerCase().contains(filtro)) {
-                    return true;
-                }
+            AvaliacaoPorNomeFilter filtroNome = new AvaliacaoPorNomeFilter(filtro);
+            resultados.addAll(filtroNome.meetCriteria(listaDeAvaliacoes));
 
-                String dataStr = avaliacao.getDataEntrega().format(formato);
-                if (dataStr.contains(filtro)) {
-                    return true;
-                }
-                return false;
-            });
+            try {
+                LocalDate data = LocalDate.parse(filtro, DateTimeFormatter.ISO_LOCAL_DATE);
+                AvaliacaoPorDataFilter filtroData = new AvaliacaoPorDataFilter(data);
+                resultados.addAll(filtroData.meetCriteria(listaDeAvaliacoes));
+            } catch (DateTimeParseException e) {
+                
+            }
+
+            Set<Avaliacao> setUnico = new LinkedHashSet<>(resultados);
+
+            filtered.setPredicate(avaliacao -> setUnico.contains(avaliacao));
         });
 
         SortedList<Avaliacao> sorted = new SortedList<>(filtered);
