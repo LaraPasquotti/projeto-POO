@@ -8,6 +8,8 @@ import java.time.LocalDate;
  */
 public class Trabalho extends Avaliacao {
 
+    private String nomeTrabalho;
+
     /**
      * Constutor da subclasse Trabalho
      * @param nomeAvaliacao o nome 
@@ -23,6 +25,10 @@ public class Trabalho extends Avaliacao {
     * Construtor Default para uso do Json
     */
     public Trabalho(){
+    }
+
+    public String descricaoAvaliacao(){
+        return "Nome do trabalho: " + this.nomeTrabalho;
     }
 
 }

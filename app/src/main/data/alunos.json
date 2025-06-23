@@ -23,7 +23,13 @@
     "nomeDisciplina" : "Cálculo 3",
     "numeroLimiteFaltas" : 5,
     "faltasAtuais" : 1,
-    "avaliacoes" : [ ]
+    "avaliacoes" : [ {
+      "tipo" : "prova",
+      "nomeAvaliacao" : "Prova P3",
+      "dataEntrega" : [ 2026, 6, 4 ],
+      "peso" : 4.0,
+      "nota" : 0.0
+    } ]
   } ]
 }, {
   "nome" : "Maria",

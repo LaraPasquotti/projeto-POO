@@ -7,6 +7,7 @@ import java.time.LocalDate;
  * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
  */
 public class Seminario extends Avaliacao {
+    private String nomeSeminario;
 
     /**
      * Construtor da subclasse Seminario
@@ -23,5 +24,10 @@ public class Seminario extends Avaliacao {
     * Construtor Default para uso do Json
     */
     public Seminario(){
+    }
+
+    @Override
+    public String descricaoAvaliacao(){
+        return "Nome do Seminário: " + this.nomeSeminario;
     }
 }

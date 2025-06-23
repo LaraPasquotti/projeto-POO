@@ -50,6 +50,14 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
     }
 
     /**
+     * Retorna a descrição da Avaliação
+     * @return a descrição da avaliação
+     */
+    public String descricaoAvaliacao(){
+        return "Tipo de Avaliação: " + this.nomeAvaliacao + " - Data de Entrega: " + this.dataEntrega;
+    }
+
+    /**
      * Retorna o nome da atividade
      * @return o nome da atividade
      */

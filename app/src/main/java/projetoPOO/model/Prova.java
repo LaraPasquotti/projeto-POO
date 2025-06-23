@@ -8,6 +8,8 @@ import java.time.LocalDate;
  */
 public class Prova extends Avaliacao {
 
+    private String conteudosProva;
+
     /**
      * Contrutor da subclasse Prova
      * @param nomeAvaliacao o nome da prova
@@ -23,6 +25,11 @@ public class Prova extends Avaliacao {
      * Construtor Default para uso do Json
      */
     public Prova(){
+    }
+
+    @Override
+    public String descricaoAvaliacao(){
+        return "Conteúdos que cairão na prova: " + this.conteudosProva;
     }
 
 }
