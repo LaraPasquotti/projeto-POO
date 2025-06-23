@@ -11,13 +11,13 @@
       "nomeAvaliacao" : "Projeto POO",
       "dataEntrega" : [ 2025, 6, 20 ],
       "peso" : 3.0,
-      "nota" : 0.0
+      "nota" : 8.0
     }, {
       "tipo" : "seminario",
       "nomeAvaliacao" : "Seminário POO",
       "dataEntrega" : [ 2025, 6, 20 ],
       "peso" : 3.0,
-      "nota" : 0.0
+      "nota" : 7.0
     } ]
   }, {
     "nomeDisciplina" : "Cálculo 3",

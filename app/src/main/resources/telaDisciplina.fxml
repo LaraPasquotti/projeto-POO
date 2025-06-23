@@ -22,6 +22,6 @@
         </items>
       </MenuButton>
       <Label fx:id="resultadoMedia" layoutX="23.0" layoutY="521.0" prefHeight="36.0" prefWidth="289.0" style="-fx-border-color: #555; -fx-border-radius: 4; -fx-padding: 4 6 4 6;" text="Média:" />
-      <Button fx:id="botaoVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Voltar" />
+      <Button fx:id="botaoVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Voltar" onAction="#botaoVoltar"/>
    </children>
 </AnchorPane>
