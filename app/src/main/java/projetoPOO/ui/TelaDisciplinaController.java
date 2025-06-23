@@ -2,6 +2,8 @@ package projetoPOO.ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -11,24 +13,28 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import javafx.stage.Stage;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import javafx.scene.control.DatePicker;
-import java.util.Optional;
-import java.time.LocalDate;
-import javafx.scene.control.ChoiceBox;
-import net.bytebuddy.dynamic.NexusAccessor;
+import javafx.stage.Stage;
 import projetoPOO.dados.DadosAlunos;
-import projetoPOO.model.*;
+import projetoPOO.model.Atividade;
+import projetoPOO.model.Avaliacao;
+import projetoPOO.model.Disciplina;
+import projetoPOO.model.Prova;
+import projetoPOO.model.Seminario;
+import projetoPOO.model.Trabalho;
+import java.util.List;
+import java.util.ArrayList;
 
 
 /**
@@ -71,6 +77,15 @@ public class TelaDisciplinaController implements Initializable {
     @FXML
     private MenuButton menuBtnRemoverAvaliacao;
 
+    @FXML
+    private Button btnAdicionarNota;
+
+    @FXML
+    private ChoiceBox<String> choiceAvaliacaoNota;
+
+    @FXML
+    private TextField campoNota;
+
     private Disciplina disciplina;
 
     /**
@@ -78,10 +93,16 @@ public class TelaDisciplinaController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        
         campoPeso.textProperty().addListener((obs, oldValue, newValue) -> {
         if (!newValue.matches("\\d*")) {
             campoPeso.setText(oldValue);
+        }
+        });
+
+        campoNota.textProperty().addListener((obs, oldValue, newValue) -> {
+        if (!newValue.matches("\\d*")) {
+            campoNota.setText(oldValue);
         }
         });
 
@@ -97,6 +118,15 @@ public class TelaDisciplinaController implements Initializable {
             }
         });
         
+    }
+
+    private void inicializarChoiceAvaliacaoNota(){
+        List<String> nomesAvaliacao = new ArrayList<>();
+        for(Avaliacao avaliacao : this.disciplina.getAvaliacoes()){
+            nomesAvaliacao.add(avaliacao.getnomeAvaliacao());
+        }
+        choiceAvaliacaoNota.getItems().addAll(nomesAvaliacao);
+
     }
 
     /**
@@ -134,7 +164,7 @@ public class TelaDisciplinaController implements Initializable {
         mediaFinal.getItems().add(new SeparatorMenuItem());
         mediaFinal.getItems().add(mediaFinalItem);
         atualizarMenuRemover();
-
+        inicializarChoiceAvaliacaoNota();
     }
 
     /**
@@ -159,9 +189,19 @@ public class TelaDisciplinaController implements Initializable {
      */
     @FXML
     private void addAvaliacao(){
+        if(choiceTipo.getValue() == null){
+            TelaLoginController.exibirAlertaDeErro("É necessário escolher um tipo de avaliação.");
+            return;
+        } 
+        if(campoData.getValue() == null){
+            TelaLoginController.exibirAlertaDeErro("É necessário escolher uma data.");
+            return;
+        }
+
         String nomeAvaliacao = campoNomeAvaliacao.getText();
         int pesoSelecionado = Integer.parseInt(campoPeso.getText());
         LocalDate dataSelecionada = campoData.getValue();
+
         String tipoSelecionado = choiceTipo.getValue();
 
         Avaliacao novaAvaliacao;
@@ -186,7 +226,8 @@ public class TelaDisciplinaController implements Initializable {
         if(novaAvaliacao != null){
             this.disciplina.adicionarAvaliacao(novaAvaliacao);
             DadosAlunos.getInstancia().salvar();
-            exibirAlertaDeSucesso("Avaliação " + novaAvaliacao.getnomeAvaliacao() + " adicionada com sucesso");
+            exibirAlertaDeSucesso("Avaliação " + novaAvaliacao.getnomeAvaliacao() + " adicionada com sucesso.");
+            choiceAvaliacaoNota.getItems().add(novaAvaliacao.getnomeAvaliacao());
         }
         campoNomeAvaliacao.clear();
         campoPeso.clear();
@@ -230,6 +271,37 @@ public class TelaDisciplinaController implements Initializable {
             atualizarMenuRemover();
         }
     }
+
+    private Avaliacao buscarAvaliacao(String nomeBuscar){
+        for(Avaliacao avaliacao : this.disciplina.getAvaliacoes()){
+            if(avaliacao.getnomeAvaliacao().equalsIgnoreCase(nomeBuscar)){
+                return avaliacao;
+            }
+        }
+        return null;
+    }
+
+    @FXML
+    private void adicionarNota(){
+        int novaNota = Integer.parseInt(campoNota.getText());
+        if(choiceAvaliacaoNota.getValue() == null){
+            TelaLoginController.exibirAlertaDeErro("É necessário escolher uma avaliação.");
+            return;
+        }
+        Avaliacao avaliacaoAdd = buscarAvaliacao(choiceAvaliacaoNota.getValue());
+        if(avaliacaoAdd != null){
+            avaliacaoAdd.setNota(novaNota);
+            DadosAlunos.getInstancia().salvar();
+            exibirAlertaDeSucesso("Nova nova adicionada com sucesso a " + avaliacaoAdd.getnomeAvaliacao());
+        } else{
+            TelaLoginController.exibirAlertaDeErro("Avaliação não encontrada.");
+        }
+           
+        campoNota.clear();
+        choiceAvaliacaoNota.setValue(null);
+
+    }
 }
+
 
 

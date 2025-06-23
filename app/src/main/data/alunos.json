@@ -50,7 +50,13 @@
       "nomeAvaliacao" : "Prova 1",
       "dataEntrega" : [ 2025, 6, 24 ],
       "peso" : 2.0,
-      "nota" : 0.0
+      "nota" : 5.0
+    }, {
+      "tipo" : "prova",
+      "nomeAvaliacao" : "Prova 2",
+      "dataEntrega" : [ 2025, 6, 26 ],
+      "peso" : 1.0,
+      "nota" : 2.0
     } ]
   }, {
     "nomeDisciplina" : "Física",
