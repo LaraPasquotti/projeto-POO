@@ -18,8 +18,24 @@ import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
-import projetoPOO.model.Avaliacao;
-import projetoPOO.model.Disciplina;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
+import javafx.scene.control.DatePicker;
+import java.util.Optional;
+
+
+import java.time.LocalDate;
+
+import javafx.scene.control.ChoiceBox;
+import net.bytebuddy.dynamic.NexusAccessor;
+import projetoPOO.dados.DadosAlunos;
+import projetoPOO.model.*;
+
+
+
+
 
 /**
  * Contém a estrutura de implementação de um controller para a tela de disciplina
@@ -43,10 +59,36 @@ public class TelaDisciplinaController implements Initializable {
     @FXML
     private Label labelDisciplina;
 
+    @FXML 
+    private Button addAvaliacao;
+
+    @FXML
+    private TextField campoNomeAvaliacao;
+
+    @FXML
+    private TextField campoPeso;
+
+    @FXML
+    private DatePicker campoData;
+
+    @FXML
+    private ChoiceBox<String> choiceTipo;
+
+    @FXML
+    private MenuButton menuBtnRemoverAvaliacao;
+
     private Disciplina disciplina;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        campoPeso.textProperty().addListener((obs, oldValue, newValue) -> {
+        if (!newValue.matches("\\d*")) {
+            campoPeso.setText(oldValue);
+        }
+        });
+
+        choiceTipo.getItems().addAll("Prova", "Trabalho", "Seminário", "Atividade");
 
         faltasAtuais.setValueFactory(
             new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0)
@@ -94,11 +136,13 @@ public class TelaDisciplinaController implements Initializable {
         });
         mediaFinal.getItems().add(new SeparatorMenuItem());
         mediaFinal.getItems().add(mediaFinalItem);
+        atualizarMenuRemover();
+
     }
 
 
     /**
-     * COMENTAR!!!!!!!!!!!!!
+     * Botão para voltar para tela anterior
      * @param event
      */
     @FXML
@@ -114,4 +158,81 @@ public class TelaDisciplinaController implements Initializable {
         }
     }
 
+    @FXML
+    private void addAvaliacao(){
+        String nomeAvaliacao = campoNomeAvaliacao.getText();
+        int pesoSelecionado = Integer.parseInt(campoPeso.getText());
+        LocalDate dataSelecionada = campoData.getValue();
+        String tipoSelecionado = choiceTipo.getValue();
+
+        Avaliacao novaAvaliacao;
+
+        switch(tipoSelecionado){
+            case "Prova":
+                novaAvaliacao = new Prova(nomeAvaliacao, dataSelecionada, this.disciplina, pesoSelecionado);
+                break;
+            case "Trabalho":
+                novaAvaliacao = new Trabalho(nomeAvaliacao, dataSelecionada, this.disciplina, pesoSelecionado);
+                break;
+            case "Seminário":
+                novaAvaliacao = new Seminario(nomeAvaliacao, dataSelecionada, this.disciplina, pesoSelecionado);
+                break;
+            case "Atividade":
+                novaAvaliacao = new Atividade(nomeAvaliacao, dataSelecionada, this.disciplina, pesoSelecionado);
+                break;
+            default:
+                novaAvaliacao = null;
+                break;
+        }
+        if(novaAvaliacao != null){
+            this.disciplina.adicionarAvaliacao(novaAvaliacao);
+            DadosAlunos.getInstancia().salvar();
+            exibirAlertaDeSucesso("Avaliação " + novaAvaliacao.getnomeAvaliacao() + " adicionada com sucesso");
+        }
+        campoNomeAvaliacao.clear();
+        campoPeso.clear();
+        campoData.setValue(null);
+        choiceTipo.setValue(null);
+    }
+
+    public void exibirAlertaDeSucesso(String mensagem){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Sucessos");
+        alert.setHeaderText(null); 
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
+
+    private void atualizarMenuRemover() {
+    menuBtnRemoverAvaliacao.getItems().clear();
+
+    for (Avaliacao d : this.disciplina.getAvaliacoes()) {
+        MenuItem item = new MenuItem(d.getnomeAvaliacao());
+        item.setOnAction(e -> confirmarRemocao(d));
+        menuBtnRemoverAvaliacao.getItems().add(item);
+    }
+    }
+
+    private void confirmarRemocao(Avaliacao avaliacao) {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmar Remoção");
+    alert.setHeaderText(null);
+    alert.setContentText("Deseja realmente remover a avaliação \"" + avaliacao.getnomeAvaliacao() + "\"?");
+
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.isPresent() && result.get() == ButtonType.OK) {
+        this.disciplina.removerAvaliacao(avaliacao);
+        DadosAlunos.getInstancia().salvar();
+
+        exibirAlertaDeSucesso("Avaliação \"" + avaliacao.getnomeAvaliacao() + "\" removida.");
+        atualizarMenuRemover();
+    }
 }
+
+
+
+
+        
+    }
+
+

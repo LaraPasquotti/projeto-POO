@@ -8,4 +8,7 @@ public class Atividade extends Avaliacao {
         super(nomeAvaliacao, dataEntrega, disciplina, peso);
     }
 
+    public Atividade(){
+    }
+
 }

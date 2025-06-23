@@ -33,7 +33,13 @@
     "nomeDisciplina" : "Cálculo",
     "numeroLimiteFaltas" : 11,
     "faltasAtuais" : 1,
-    "avaliacoes" : [ ]
+    "avaliacoes" : [ {
+      "tipo" : "prova",
+      "nomeAvaliacao" : "Prova 1",
+      "dataEntrega" : [ 2025, 6, 24 ],
+      "peso" : 2.0,
+      "nota" : 0.0
+    } ]
   }, {
     "nomeDisciplina" : "Física",
     "numeroLimiteFaltas" : 5,
