@@ -24,17 +24,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.DatePicker;
 import java.util.Optional;
-
-
 import java.time.LocalDate;
-
 import javafx.scene.control.ChoiceBox;
 import net.bytebuddy.dynamic.NexusAccessor;
 import projetoPOO.dados.DadosAlunos;
 import projetoPOO.model.*;
-
-
-
 
 
 /**
@@ -79,6 +73,9 @@ public class TelaDisciplinaController implements Initializable {
 
     private Disciplina disciplina;
 
+    /**
+     * Método inicializador do controller
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -103,7 +100,7 @@ public class TelaDisciplinaController implements Initializable {
     }
 
     /**
-     * COMENTAR!!!!!!!!!!!!!!
+     * Método para setar a disciplina do aluno logado
      * @param disciplina
      */
     public void setDisciplina(Disciplina disciplina) {
@@ -140,7 +137,6 @@ public class TelaDisciplinaController implements Initializable {
 
     }
 
-
     /**
      * Botão para voltar para tela anterior
      * @param event
@@ -158,6 +154,9 @@ public class TelaDisciplinaController implements Initializable {
         }
     }
 
+    /**
+     * Método para adicionar uma disciplina
+     */
     @FXML
     private void addAvaliacao(){
         String nomeAvaliacao = campoNomeAvaliacao.getText();
@@ -213,26 +212,24 @@ public class TelaDisciplinaController implements Initializable {
     }
     }
 
+    /**
+     * Método para confirmar a remoção de uma disciplina
+     * @param avaliacao
+     */
     private void confirmarRemocao(Avaliacao avaliacao) {
-    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-    alert.setTitle("Confirmar Remoção");
-    alert.setHeaderText(null);
-    alert.setContentText("Deseja realmente remover a avaliação \"" + avaliacao.getnomeAvaliacao() + "\"?");
-
-    Optional<ButtonType> result = alert.showAndWait();
-    if (result.isPresent() && result.get() == ButtonType.OK) {
-        this.disciplina.removerAvaliacao(avaliacao);
-        DadosAlunos.getInstancia().salvar();
-
-        exibirAlertaDeSucesso("Avaliação \"" + avaliacao.getnomeAvaliacao() + "\" removida.");
-        atualizarMenuRemover();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmar Remoção");
+        alert.setHeaderText(null);
+        alert.setContentText("Deseja realmente remover a avaliação \"" + avaliacao.getnomeAvaliacao() + "\"?");
+        Optional<ButtonType> result = alert.showAndWait();
+        
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            this.disciplina.removerAvaliacao(avaliacao);
+            DadosAlunos.getInstancia().salvar();
+            exibirAlertaDeSucesso("Avaliação \"" + avaliacao.getnomeAvaliacao() + "\" removida.");
+            atualizarMenuRemover();
+        }
     }
 }
-
-
-
-
-        
-    }
 
 
