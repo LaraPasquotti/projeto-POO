@@ -142,7 +142,7 @@ public class TelaDisciplinaController implements Initializable {
 
 
     /**
-     * COMENTAR!!!!!!!!!!!!!
+     * Botão para voltar para tela anterior
      * @param event
      */
     @FXML
@@ -225,7 +225,7 @@ public class TelaDisciplinaController implements Initializable {
         DadosAlunos.getInstancia().salvar();
 
         exibirAlertaDeSucesso("Avaliação \"" + avaliacao.getnomeAvaliacao() + "\" removida.");
-        atualizarMenuRemover(); // Atualiza o menu para refletir a remoção
+        atualizarMenuRemover();
     }
 }
 

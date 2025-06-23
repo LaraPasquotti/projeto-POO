@@ -52,22 +52,16 @@ public class TelaLoginController {
 
         if (logarAluno != null) {
             TelaLoginController.alunoLogado = logarAluno; 
-            System.out.println("O login funcionou");
-
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/TelaPrincipal.fxml"));
                 Parent root = loader.load();
-
                 
                 TelaPrincipalController principalController = loader.getController();
-
                 
                 principalController.setAlunoLogado(alunoLogado);
-               
 
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                
-                
+
                 stage.setScene(new Scene(root, 335, 600)); 
                 stage.setTitle("Tela Principal"); 
                 stage.show();
