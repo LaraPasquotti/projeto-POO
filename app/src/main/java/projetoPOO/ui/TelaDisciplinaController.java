@@ -40,6 +40,9 @@ public class TelaDisciplinaController implements Initializable {
     @FXML
     private Node botaoVoltar;
 
+    @FXML
+    private Label labelDisciplina;
+
     private Disciplina disciplina;
 
     @Override
@@ -57,8 +60,14 @@ public class TelaDisciplinaController implements Initializable {
         
     }
 
+    /**
+     * COMENTAR!!!!!!!!!!!!!!
+     * @param disciplina
+     */
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
+
+        labelDisciplina.setText(disciplina.getNomeDisciplina());
 
         int limite = disciplina.getNumeroLimiteFaltas();
         int faltas = disciplina.getFaltasAtuais();
@@ -87,6 +96,11 @@ public class TelaDisciplinaController implements Initializable {
         mediaFinal.getItems().add(mediaFinalItem);
     }
 
+
+    /**
+     * COMENTAR!!!!!!!!!!!!!
+     * @param event
+     */
     @FXML
     private void botaoVoltar(ActionEvent event) {
         try {
