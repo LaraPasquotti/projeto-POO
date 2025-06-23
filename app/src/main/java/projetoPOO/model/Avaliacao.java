@@ -14,7 +14,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({
     @JsonSubTypes.Type(value = Prova.class, name = "prova"),
     @JsonSubTypes.Type(value = Trabalho.class, name = "trabalho"),
-    @JsonSubTypes.Type(value = Seminario.class, name = "seminario")
+    @JsonSubTypes.Type(value = Seminario.class, name = "seminario"),
+    @JsonSubTypes.Type(value = Atividade.class, name = "atividade"),
     // coloque todas que existem no seu projeto
 })
 
