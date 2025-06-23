@@ -50,19 +50,7 @@
         "nomeDisciplina": "Cálculo",
         "numeroLimiteFaltas": 11,
         "faltasAtuais": 1,
-        "avaliacoes": [
-          {
-            "tipo": "atividade",
-            "nomeAvaliacao": "Testinho",
-            "dataEntrega": [
-              2025,
-              6,
-              25
-            ],
-            "peso": 1.0,
-            "nota": 0.0
-          }
-        ]
+        "avaliacoes": []
       },
       {
         "nomeDisciplina": "Física",

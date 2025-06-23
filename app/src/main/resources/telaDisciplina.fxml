@@ -33,13 +33,12 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="addAvaliacao" layoutX="105.0" layoutY="408.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="137.0" text="Adicionar Avaliação" onAction="#addAvaliacao" />
-      <Button fx:id="remAvaliacao" layoutX="37.0" layoutY="252.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="137.0" text="Remover Avaliação" />
-      <TextField fx:id="campoNomeAvaliacao" layoutX="25.0" layoutY="300.0" prefHeight="25.0" prefWidth="289.0" promptText="Nome avaliação" />
-      <DatePicker fx:id="campoData" layoutX="25.0" layoutY="373.0" prefHeight="25.0" prefWidth="169.0" promptText="Data" />
-      <TextField fx:id="campoPeso" layoutX="25.0" layoutY="335.0" prefHeight="25.0" prefWidth="289.0" promptText="Peso" />
-      <ChoiceBox fx:id="choiceTipo" layoutX="205.0" layoutY="373.0" prefHeight="25.0" prefWidth="107.0" />
-      <MenuButton layoutX="24.0" layoutY="202.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="289.0" text="Remover Avaliação">
+      <Button fx:id="addAvaliacao" layoutX="103.0" layoutY="427.0" mnemonicParsing="false" onAction="#addAvaliacao" prefHeight="36.0" prefWidth="137.0" text="Adicionar Avaliação" />
+      <TextField fx:id="campoNomeAvaliacao" layoutX="23.0" layoutY="319.0" prefHeight="25.0" prefWidth="289.0" promptText="Nome avaliação" />
+      <DatePicker fx:id="campoData" layoutX="23.0" layoutY="392.0" prefHeight="25.0" prefWidth="169.0" promptText="Data" />
+      <TextField fx:id="campoPeso" layoutX="23.0" layoutY="354.0" prefHeight="25.0" prefWidth="289.0" promptText="Peso" />
+      <ChoiceBox fx:id="choiceTipo" layoutX="203.0" layoutY="392.0" prefHeight="25.0" prefWidth="107.0" />
+      <MenuButton fx:id="menuBtnRemoverAvaliacao" layoutX="24.0" layoutY="194.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="289.0" text="Remover Avaliação">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />

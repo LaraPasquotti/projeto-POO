@@ -20,8 +20,11 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.DatePicker;
+import java.util.Optional;
+
 
 import java.time.LocalDate;
 
@@ -71,8 +74,8 @@ public class TelaDisciplinaController implements Initializable {
     @FXML
     private ChoiceBox<String> choiceTipo;
 
-
-
+    @FXML
+    private MenuButton menuBtnRemoverAvaliacao;
 
     private Disciplina disciplina;
 
@@ -133,6 +136,8 @@ public class TelaDisciplinaController implements Initializable {
         });
         mediaFinal.getItems().add(new SeparatorMenuItem());
         mediaFinal.getItems().add(mediaFinalItem);
+        atualizarMenuRemover();
+
     }
 
 
@@ -197,6 +202,33 @@ public class TelaDisciplinaController implements Initializable {
         alert.setContentText(mensagem);
         alert.showAndWait();
     }
+
+    private void atualizarMenuRemover() {
+    menuBtnRemoverAvaliacao.getItems().clear();
+
+    for (Avaliacao d : this.disciplina.getAvaliacoes()) {
+        MenuItem item = new MenuItem(d.getnomeAvaliacao());
+        item.setOnAction(e -> confirmarRemocao(d));
+        menuBtnRemoverAvaliacao.getItems().add(item);
+    }
+    }
+
+    private void confirmarRemocao(Avaliacao avaliacao) {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmar Remoção");
+    alert.setHeaderText(null);
+    alert.setContentText("Deseja realmente remover a avaliação \"" + avaliacao.getnomeAvaliacao() + "\"?");
+
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.isPresent() && result.get() == ButtonType.OK) {
+        this.disciplina.removerAvaliacao(avaliacao);
+        DadosAlunos.getInstancia().salvar();
+
+        exibirAlertaDeSucesso("Avaliação \"" + avaliacao.getnomeAvaliacao() + "\" removida.");
+        atualizarMenuRemover(); // Atualiza o menu para refletir a remoção
+    }
+}
+
 
 
 
