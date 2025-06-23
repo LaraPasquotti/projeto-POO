@@ -120,6 +120,9 @@ public class TelaDisciplinaController implements Initializable {
         
     }
 
+    /**
+     * Método para inicializar a choiceAvaliacaoNota com as avaliações do aluno logado
+     */
     private void inicializarChoiceAvaliacaoNota(){
         List<String> nomesAvaliacao = new ArrayList<>();
         for(Avaliacao avaliacao : this.disciplina.getAvaliacoes()){
@@ -185,7 +188,7 @@ public class TelaDisciplinaController implements Initializable {
     }
 
     /**
-     * Método para adicionar uma disciplina
+     * Método para adicionar uma nova avaliação
      */
     @FXML
     private void addAvaliacao(){
@@ -235,6 +238,10 @@ public class TelaDisciplinaController implements Initializable {
         choiceTipo.setValue(null);
     }
 
+    /**
+     * Método para exibir alerta de sucesso
+     * @param mensagem mensagem a ser exibida no alerta
+     */
     public void exibirAlertaDeSucesso(String mensagem){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Sucessos");
@@ -243,6 +250,9 @@ public class TelaDisciplinaController implements Initializable {
         alert.showAndWait();
     }
 
+    /**
+     * Método para atualizar as opções do menu remover quando uma nova avaliação é adicionada
+     */
     private void atualizarMenuRemover() {
     menuBtnRemoverAvaliacao.getItems().clear();
 
@@ -272,6 +282,10 @@ public class TelaDisciplinaController implements Initializable {
         }
     }
 
+    /**
+     * Método auxiliar para buscar uma avalição por nome
+     * @param nomeBuscar nome da avaliação a ser buscada
+     */
     private Avaliacao buscarAvaliacao(String nomeBuscar){
         for(Avaliacao avaliacao : this.disciplina.getAvaliacoes()){
             if(avaliacao.getnomeAvaliacao().equalsIgnoreCase(nomeBuscar)){
@@ -281,6 +295,9 @@ public class TelaDisciplinaController implements Initializable {
         return null;
     }
 
+    /**
+     * Método para atribuir uma nova nova a uma avalição existente
+     */
     @FXML
     private void adicionarNota(){
         int novaNota = Integer.parseInt(campoNota.getText());
