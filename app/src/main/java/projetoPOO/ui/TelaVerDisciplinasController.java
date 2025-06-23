@@ -164,6 +164,9 @@ public class TelaVerDisciplinasController {
         }
     }
 
+    /**
+     * Método para ir para a tela da disciplina específica ao clicar na disciplina
+     */
     @FXML
     private void onDisciplinaClicked(MouseEvent event) {
 
