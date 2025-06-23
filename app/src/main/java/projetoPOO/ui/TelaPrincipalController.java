@@ -13,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -20,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import projetoPOO.model.Aluno;
 import projetoPOO.model.Avaliacao;
+import projetoPOO.model.AvisosAvaliacao;
 import projetoPOO.model.Disciplina;
 
 /**
@@ -78,6 +81,17 @@ public class TelaPrincipalController {
         this.alunoLogado = aluno;
         carregarAvaliacoesDoAluno();
         configurarPesquisa();
+
+        String mensagemDeAviso = AvisosAvaliacao.verificarPrazos(listaDeAvaliacoes);
+        if (mensagemDeAviso != null) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Avisos de Prazos");
+            alert.setHeaderText("Você tem uma avaliação próxima, preste atenção aos prazos!");
+            alert.setContentText(mensagemDeAviso);
+            alert.getDialogPane().setPrefWidth(350);
+            alert.showAndWait();
+        }
+
     }
 
     /**

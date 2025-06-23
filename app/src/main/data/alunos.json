@@ -25,9 +25,15 @@
     "faltasAtuais" : 1,
     "avaliacoes" : [ {
       "tipo" : "prova",
-      "nomeAvaliacao" : "Prova P3",
-      "dataEntrega" : [ 2026, 6, 4 ],
+      "nomeAvaliacao" : "Terceira Prova",
+      "dataEntrega" : [ 2025, 6, 26 ],
       "peso" : 4.0,
+      "nota" : 0.0
+    }, {
+      "tipo" : "prova",
+      "nomeAvaliacao" : "Segunda Prova",
+      "dataEntrega" : [ 2025, 6, 3 ],
+      "peso" : 2.0,
       "nota" : 0.0
     } ]
   } ]
