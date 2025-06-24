@@ -26,11 +26,17 @@ public class projetoPOOTest {
         disciplina = new Disciplina("Cálculo", 10, 0);
     }
 
+    /**
+     * Testa o método calcularMedia() quando não tem avaliações existentes
+     */
     @Test
     void calculaMediaSemAvaliacao() {
         assertEquals(0.0, disciplina.calcularMedia());
     }
 
+    /**
+     * Testa o método calcularMedia() quando tem avaliações existentes
+     */
     @Test
     void calculaMediaComAvaliacao() {
         Atividade a1 = new Atividade("Atividade1", LocalDate.now(), disciplina, 2.0);
@@ -44,6 +50,9 @@ public class projetoPOOTest {
         assertEquals(6.8, disciplina.calcularMedia(), 1e-9, "Cálculo incorreto");
     }
 
+    /**
+     * Testa os métodos de adicionar e remover faltas
+     */
     @Test
     void adicionarERemoverFaltas() {
         assertEquals(0, disciplina.getFaltasAtuais());
@@ -53,6 +62,9 @@ public class projetoPOOTest {
         assertEquals(0, disciplina.getFaltasAtuais());
     }
 
+    /**
+     * Testa os métodos de adicionar e remover avaliação
+     */
     @Test
     void adicionarERemoverAvaliacao() {
         Atividade a2 = new Atividade("Atividade2", LocalDate.now(), disciplina, 1.0);
@@ -63,6 +75,9 @@ public class projetoPOOTest {
         assertTrue(disciplina.getAvaliacoes().isEmpty());
     }
 
+    /**
+     * Testa o método compareTo() para ordenar avaliações por data de entrega
+     */
     @Test
     void compareToPorData() {
         Atividade atvAntiga = new Atividade("Atividade Antiga", LocalDate.of(2022, 8, 1), disciplina, 1.0);
@@ -71,12 +86,18 @@ public class projetoPOOTest {
         assertTrue(atvAntiga.compareTo(atvNova) < 0);
     }
 
+    /**
+     * Testa o formato da String no método toString
+     */
     @Test
     void toStringTest() {
         Prova p2 = new Prova("P2", LocalDate.of(2025, 7, 3), disciplina, 2.5);
         assertEquals("P2 - Entrega: 2025-07-03", p2.toString());
     }
 
+    /**
+     * Testa o filtro AvaliacaoPorNomeFilter()
+     */
     @Test
     void AvaliacaoPorNomeFilterTest() {
         Disciplina d = new Disciplina("Álgebra Linear", 10, 0);
