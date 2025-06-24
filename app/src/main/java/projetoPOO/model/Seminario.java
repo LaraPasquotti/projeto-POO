@@ -26,6 +26,9 @@ public class Seminario extends Avaliacao {
     public Seminario(){
     }
 
+    /**
+     * Retorna uma descrição do seminário
+     */
     @Override
     public String descricaoAvaliacao(){
         return "Nome do Seminário: " + this.nomeSeminario;

@@ -27,6 +27,9 @@ public class Disciplina {
         this.avaliacoes = new ArrayList<>();
     }
 
+    /**
+     * Construtor default da classe Disciplina
+     */
     public Disciplina(){}
 
     /**
@@ -59,7 +62,6 @@ public class Disciplina {
         }
 
         return somaNotasPonderadas / somaPesos;
-
     }
 
     /**
@@ -67,7 +69,6 @@ public class Disciplina {
      */
     public void removerFaltas(){
         this.faltasAtuais --;
-
     }
 
     /**
@@ -149,7 +150,5 @@ public class Disciplina {
     public void setAvaliacoes(ArrayList<Avaliacao> avaliacoes) {
         this.avaliacoes = avaliacoes;
     }
-
-    
 
 }

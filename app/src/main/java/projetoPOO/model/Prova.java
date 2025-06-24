@@ -27,6 +27,9 @@ public class Prova extends Avaliacao {
     public Prova(){
     }
 
+    /**
+     * Retorna uma descrição da prova
+     */
     @Override
     public String descricaoAvaliacao(){
         return "Conteúdos que cairão na prova: " + this.conteudosProva;

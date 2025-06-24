@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
     @JsonSubTypes.Type(value = Trabalho.class, name = "trabalho"),
     @JsonSubTypes.Type(value = Seminario.class, name = "seminario"),
     @JsonSubTypes.Type(value = Atividade.class, name = "atividade"),
-    // coloque todas que existem no seu projeto
 })
 
 public abstract class Avaliacao implements Comparable<Avaliacao> {
@@ -145,14 +144,14 @@ public abstract class Avaliacao implements Comparable<Avaliacao> {
         this.nota = nota;
     }
 
+    /**
+     * Representação das informações da avaliação como string
+     */
     @Override
     public String toString() {
         return String.format("%s - Entrega: %s", 
         this.getnomeAvaliacao(), this.getDataEntrega().toString());
     }   
-
-    
-
 }
 
  

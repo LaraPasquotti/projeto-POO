@@ -20,6 +20,7 @@ import projetoPOO.model.AutenticarAluno;
  * @author Lara Pasquotti, Isabel Cristina e Lucas Nunes
  */
 public class TelaLoginController {
+
     protected static Aluno alunoLogado;
     
     @FXML

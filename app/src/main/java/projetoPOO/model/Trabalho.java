@@ -27,6 +27,9 @@ public class Trabalho extends Avaliacao {
     public Trabalho(){
     }
 
+    /**
+     * Retorna uma descrição do trabalho
+     */
     public String descricaoAvaliacao(){
         return "Nome do trabalho: " + this.nomeTrabalho;
     }

@@ -36,7 +36,6 @@ import projetoPOO.model.Trabalho;
 import java.util.List;
 import java.util.ArrayList;
 
-
 /**
  * Contém a estrutura de implementação de um controller para a tela de disciplina
  * 
@@ -44,46 +43,88 @@ import java.util.ArrayList;
  */
 public class TelaDisciplinaController implements Initializable {
 
-    @FXML 
+    @FXML
+    /**
+     * Spinner para ajustar as faltas do aluno
+     */
     private Spinner<Integer> faltasAtuais;
 
     @FXML
+    /**
+     * Menu para exibir notas indiivduais ou a média final
+     */
     private MenuButton mediaFinal;
 
     @FXML
+    /**
+     * Texto para exibir resultado da média final ou de uma nota específica
+     */
     private Label resultadoMedia;
 
     @FXML
+    /**
+     * Botão de voltar para a tela anterior
+     */
     private Node botaoVoltar;
 
     @FXML
+    /**
+     * Texto indicando a disciplina selecionada
+     */
     private Label labelDisciplina;
 
-    @FXML 
+    @FXML
+    /**
+     * Botão para adicionar uma nova avaliação
+     */
     private Button addAvaliacao;
 
     @FXML
+    /**
+     * Campo de texto para inserir o nome da avaliação
+     */
     private TextField campoNomeAvaliacao;
 
     @FXML
+    /**
+     * Campo de texto para inserir o peso da avaliação
+     */
     private TextField campoPeso;
 
     @FXML
+    /**
+     * Campo para selecionar a data de entrega da avaliação
+     */
     private DatePicker campoData;
 
     @FXML
+    /**
+     * Campo para selecionar o tipo de avaliação
+     */
     private ChoiceBox<String> choiceTipo;
 
     @FXML
+    /**
+     * Menu para escolher uma das avaliações para remover
+     */
     private MenuButton menuBtnRemoverAvaliacao;
 
     @FXML
+    /**
+     * Botão para adicionar nota à uma avaliação
+     */
     private Button btnAdicionarNota;
 
     @FXML
+    /**
+     * Campo para selecionar qual avaliação receberá a nota
+     */
     private ChoiceBox<String> choiceAvaliacaoNota;
 
     @FXML
+    /**
+     * Campo para inserir a nota
+     */
     private TextField campoNota;
 
     private Disciplina disciplina;

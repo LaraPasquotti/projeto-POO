@@ -2,7 +2,6 @@ package projetoPOO.ui;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -65,7 +64,6 @@ public class TelaPrincipalController {
      */
     @FXML
     private TextField campoPesquisa;
-
 
     private ObservableList<Avaliacao> listaDeAvaliacoes = FXCollections.observableArrayList();
     private Aluno alunoLogado;

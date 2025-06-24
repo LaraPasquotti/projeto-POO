@@ -42,6 +42,23 @@
       "peso" : 1.0,
       "nota" : 0.0
     } ]
+  }, {
+    "nomeDisciplina" : "Física Geral 1",
+    "numeroLimiteFaltas" : 10,
+    "faltasAtuais" : 4,
+    "avaliacoes" : [ {
+      "tipo" : "prova",
+      "nomeAvaliacao" : "Prova 1",
+      "dataEntrega" : [ 2025, 4, 16 ],
+      "peso" : 3.0,
+      "nota" : 5.0
+    }, {
+      "tipo" : "prova",
+      "nomeAvaliacao" : "Prova 2",
+      "dataEntrega" : [ 2025, 5, 28 ],
+      "peso" : 4.0,
+      "nota" : 7.0
+    } ]
   } ]
 }, {
   "nome" : "Maria",

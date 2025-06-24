@@ -13,6 +13,6 @@ public interface Avisos {
      *
      * @param notificacao a notificação a ser mostrada
      */
-    void ntoficacoes(String notificacao);
+    void notificacoes(String notificacao);
 
 }

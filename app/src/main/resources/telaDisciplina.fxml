@@ -15,9 +15,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoPOO.ui.TelaDisciplinaController">
    <children>
-      <Label layoutX="24.0" layoutY="90.0" prefHeight="36.0" prefWidth="289.0" style="-fx-border-color: #555; -fx-border-width: 1; -fx-border-radius: 4; -fx-padding: 4 6 4 6;" text="Faltas" />
-      <Spinner fx:id="faltasAtuais" layoutX="236.0" layoutY="95.0" prefHeight="26.0" prefWidth="71.0" />
-      <MenuButton fx:id="mediaFinal" layoutX="23.0" layoutY="141.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="289.0" text="Avaliações">
+      <Label layoutX="23.0" layoutY="445.0" prefHeight="36.0" prefWidth="289.0" style="-fx-border-color: #555; -fx-border-width: 1; -fx-border-radius: 4; -fx-padding: 4 6 4 6;" text="Faltas" />
+      <Spinner fx:id="faltasAtuais" layoutX="235.0" layoutY="450.0" prefHeight="26.0" prefWidth="71.0" />
+      <MenuButton fx:id="mediaFinal" layoutX="23.0" layoutY="59.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="289.0" text="Avaliações">
         <items>
             <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
               <content>
@@ -28,26 +28,26 @@
       </MenuButton>
       <Label fx:id="resultadoMedia" layoutX="23.0" layoutY="490.0" prefHeight="36.0" prefWidth="289.0" style="-fx-border-color: #555; -fx-border-radius: 4; -fx-padding: 4 6 4 6;" text="Média:" />
       <Button fx:id="botaoVoltar" layoutX="144.0" layoutY="542.0" mnemonicParsing="false" onAction="#botaoVoltar" text="Voltar" />
-      <Label fx:id="labelDisciplina" alignment="CENTER" contentDisplay="TOP" layoutX="29.0" layoutY="44.0" prefHeight="25.0" prefWidth="289.0" text="Disciplina" textAlignment="CENTER">
+      <Label fx:id="labelDisciplina" alignment="CENTER" contentDisplay="TOP" layoutX="23.0" layoutY="22.0" prefHeight="25.0" prefWidth="289.0" text="Disciplina" textAlignment="CENTER">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="addAvaliacao" layoutX="103.0" layoutY="427.0" mnemonicParsing="false" onAction="#addAvaliacao" prefHeight="36.0" prefWidth="137.0" text="Adicionar Avaliação" />
-      <TextField fx:id="campoNomeAvaliacao" layoutX="23.0" layoutY="327.0" prefHeight="25.0" prefWidth="289.0" promptText="Nome avaliação" />
-      <DatePicker fx:id="campoData" layoutX="23.0" layoutY="394.0" prefHeight="25.0" prefWidth="169.0" promptText="Data" />
-      <TextField fx:id="campoPeso" layoutX="23.0" layoutY="360.0" prefHeight="25.0" prefWidth="289.0" promptText="Peso" />
-      <ChoiceBox fx:id="choiceTipo" layoutX="203.0" layoutY="395.0" prefHeight="25.0" prefWidth="107.0" />
-      <MenuButton fx:id="menuBtnRemoverAvaliacao" layoutX="24.0" layoutY="187.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="289.0" text="Remover Avaliação">
+      <Button fx:id="addAvaliacao" layoutX="103.0" layoutY="236.0" mnemonicParsing="false" onAction="#addAvaliacao" prefHeight="36.0" prefWidth="137.0" text="Adicionar Avaliação" />
+      <TextField fx:id="campoNomeAvaliacao" layoutX="23.0" layoutY="136.0" prefHeight="25.0" prefWidth="289.0" promptText="Nome avaliação" />
+      <DatePicker fx:id="campoData" layoutX="23.0" layoutY="203.0" prefHeight="25.0" prefWidth="169.0" promptText="Data" />
+      <TextField fx:id="campoPeso" layoutX="23.0" layoutY="169.0" prefHeight="25.0" prefWidth="289.0" promptText="Peso" />
+      <ChoiceBox fx:id="choiceTipo" layoutX="203.0" layoutY="204.0" prefHeight="25.0" prefWidth="107.0" />
+      <MenuButton fx:id="menuBtnRemoverAvaliacao" layoutX="27.0" layoutY="374.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="289.0" text="Remover Avaliação">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
-      <TextField fx:id="campoNota" layoutX="24.0" layoutY="258.0" prefHeight="25.0" prefWidth="80.0" promptText="Nota" />
-      <ChoiceBox fx:id="choiceAvaliacaoNota" layoutX="113.0" layoutY="258.0" prefHeight="25.0" prefWidth="94.0" />
-      <Button fx:id="btnAdicionarNota" layoutX="218.0" layoutY="258.0" mnemonicParsing="false" onAction="#adicionarNota" text="Adicionar nota" />
-      <Label fx:id="labelDisciplina1" alignment="CENTER" contentDisplay="TOP" layoutX="24.0" layoutY="302.0" prefHeight="25.0" prefWidth="289.0" text="Nova Avaliação" textAlignment="CENTER" />
-      <Label fx:id="labelNovaNota" alignment="CENTER" contentDisplay="TOP" layoutX="24.0" layoutY="235.0" prefHeight="25.0" prefWidth="289.0" text="Nova nota" textAlignment="CENTER" />
+      <TextField fx:id="campoNota" layoutX="27.0" layoutY="330.0" prefHeight="25.0" prefWidth="80.0" promptText="Nota" />
+      <ChoiceBox fx:id="choiceAvaliacaoNota" layoutX="116.0" layoutY="330.0" prefHeight="25.0" prefWidth="94.0" />
+      <Button fx:id="btnAdicionarNota" layoutX="221.0" layoutY="330.0" mnemonicParsing="false" onAction="#adicionarNota" text="Adicionar nota" />
+      <Label fx:id="labelDisciplina1" alignment="CENTER" contentDisplay="TOP" layoutX="24.0" layoutY="111.0" prefHeight="25.0" prefWidth="289.0" text="Nova Avaliação" textAlignment="CENTER" />
+      <Label fx:id="labelNovaNota" alignment="CENTER" contentDisplay="TOP" layoutX="27.0" layoutY="307.0" prefHeight="25.0" prefWidth="289.0" text="Nova nota" textAlignment="CENTER" />
    </children>
 </AnchorPane>

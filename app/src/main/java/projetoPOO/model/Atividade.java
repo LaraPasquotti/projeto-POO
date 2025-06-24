@@ -28,6 +28,9 @@ public class Atividade extends Avaliacao {
     public Atividade(){
     }
 
+    /**
+     * Retorna uma descrição da atividade
+     */
     @Override
     public String descricaoAvaliacao(){
         return "Tipo de Avaliação: " + this.nomeAtividade;

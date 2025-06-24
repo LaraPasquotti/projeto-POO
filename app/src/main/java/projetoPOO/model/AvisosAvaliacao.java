@@ -12,7 +12,7 @@ import java.util.List;
 public class AvisosAvaliacao implements Avisos {
 
     @Override
-    public void ntoficacoes(String mensagem) {
+    public void notificacoes(String mensagem) {
     }
 
     /**

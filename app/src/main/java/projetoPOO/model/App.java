@@ -37,14 +37,5 @@ public class App {
         }
         
         Disciplina disciplinaPoo = new Disciplina("POO", 10, 2);
-
-        /*LocalDate hoje = LocalDate.now();
-        Seminario novaAvaliacao = new Seminario("seminario POO", hoje, disciplinaPoo, 3);
-
-        Disciplina disciplinaAddAvaliacao = alunoLogado.buscarDisciplina(novaAvaliacao.getDisciplina().getNomeDisciplina());
-        disciplinaAddAvaliacao.adicionarAvaliacao(novaAvaliacao);*/
-
-        //alunoLogado.adicionarDisciplina(disciplinaPoo);
-        //DadosAlunos.getInstancia().salvar();
     }
 }
